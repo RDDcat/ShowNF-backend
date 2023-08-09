@@ -18,15 +18,18 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
 
+    - name: Change wrapper permissions
+      run: chmod +x ./reptile/gradlew
+      
     - name: Init gradle wrapper
-      run: ./reptile/gradlew wrapper
+      run: gradle wrapper
       
     - name: Change wrapper permissions
       run: chmod +x ./reptile/gradlew
       
     # Gradle Build
     - name: Build with Gradle
-      run: ./reptile/gradlew clean build
+      run: ./gradlew clean build
 
     # DockerHub 로그인
     - name: DockerHub Login
