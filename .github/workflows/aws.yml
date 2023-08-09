@@ -22,7 +22,7 @@ jobs:
       run: chmod +x ./reptile/gradlew
       
     - name: Init gradle wrapper
-      run: init gradle
+      run: gradle init
       
     - name: Init gradle wrapper
       run: gradle wrapper
