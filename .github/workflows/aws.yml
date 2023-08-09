@@ -1,0 +1,64 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  CI-CD:
+    runs-on: ubuntu-latest
+    steps:
+
+    ## jdk setting
+    - uses: actions/checkout@v3
+    - name: Set up JDK 
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin' # https://github.com/actions/setup-java
+
+    ## gradle caching
+    - name: Gradle Caching
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: make application-prod.yml
+      run: |
+        cd ./src/main/resources
+        touch ./application-prod.yml
+        echo "${{ secrets.APPLICATION_PROD }}" > ./application-prod.yml
+
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build -x test
+
+    - name: Docker build
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker build -t app .
+        docker tag app ${{ secrets.DOCKER_USERNAME }}/sejongmate:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/sejongmate:latest
+
+    - name: Deploy
+      uses: appleboy/ssh-action@main
+      with:
+        host: ${{ secrets.HOST }} # EC2 인스턴스 퍼블릭 DNS
+        username: ec2-user
+        key: ${{ secrets.PRIVATE_KEY }} # pem 키
+        # 도커 작업
+        script: |
+          docker pull ${{ secrets.DOCKER_USERNAME }}/sejongmate:latest
+          docker stop $(docker ps -a -q)
+          docker run -d --log-driver=syslog -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/sejongmate:latest
+          docker rm $(docker ps --filter 'status=exited' -a -q)
+          docker image prune -a -f
