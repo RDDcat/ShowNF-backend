@@ -32,7 +32,11 @@ jobs:
       
     # Gradle Build
     - name: Build with Gradle
-      run: ./gradlew clean build
+      run: ./gradlew -d clean 
+      
+    # Gradle Build
+    - name: Build with Gradle
+      run: ./gradlew build
 
     # DockerHub 로그인
     - name: DockerHub Login
