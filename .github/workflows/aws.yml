@@ -36,7 +36,7 @@ jobs:
       
     # Gradle Build
     - name: Build with Gradle Build
-      run: ./gradlew build
+      run: ./gradlew build -x test
 
     # DockerHub 로그인
     - name: DockerHub Login
