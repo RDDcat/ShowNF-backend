@@ -19,7 +19,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Change wrapper permissions
-      run: chmod +x ./reptile/gradlew
+      run: chmod +x ./gradlew
       
     - name: Init gradle wrapper
       run: gradle init
@@ -28,15 +28,15 @@ jobs:
       run: gradle wrapper
       
     - name: Change wrapper permissions
-      run: chmod +x ./reptile/gradlew
+      run: chmod +x ./gradlew
       
     # Gradle Build
-    - name: Build with Gradle
-      run: ./reptile/gradlew clean 
+    - name: Build with Gradle Clean
+      run: ./gradlew clean 
       
     # Gradle Build
-    - name: Build with Gradle
-      run: ./reptile/gradlew build
+    - name: Build with Gradle Build
+      run: ./gradlew build
 
     # DockerHub 로그인
     - name: DockerHub Login
