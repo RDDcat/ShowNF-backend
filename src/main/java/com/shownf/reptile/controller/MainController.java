@@ -1,5 +1,6 @@
 package com.shownf.reptile.controller;
 
+import com.shownf.reptile.entity.TestDAO;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,8 @@ public class MainController {
     }
 
     @GetMapping("/test")
-    public String healthtest(){
-        return "진짜되나 port 8080";
+    public TestDAO healthtest(){
+        TestDAO testDAO = new TestDAO("nameIsTest", "test data for front-back connection", 12);
+        return testDAO;
     }
 }
