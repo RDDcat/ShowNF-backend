@@ -31,11 +31,11 @@ jobs:
       run: chmod +x ./gradlew
       
     # Gradle Build
-    - name: Build with Gradle
+    - name: Build with Gradle Clean
       run: ./gradlew clean 
       
     # Gradle Build
-    - name: Build with Gradle
+    - name: Build with Gradle Build
       run: ./gradlew build
 
     # DockerHub 로그인
