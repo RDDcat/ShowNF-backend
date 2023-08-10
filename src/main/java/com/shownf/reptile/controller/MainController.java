@@ -11,4 +11,9 @@ public class MainController {
     public String health(){
         return "server on";
     }
+
+    @GetMapping("/test")
+    public String healthtest(){
+        return "진짜되나 port 8080";
+    }
 }
