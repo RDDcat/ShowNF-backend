@@ -26,7 +26,7 @@ public class SavePostBean {
         // pId 생성
         long pId = createUniqueIdBean.exec();
 
-        // 수신 데이터로 DTO 생성 및 DAO 변환
+        // DTO 객체 DAO 변환
         PostDAO postDAO = createPostDAOBean.exec(pId, requestPostSaveDTO);
 
         // 게시물 저장
