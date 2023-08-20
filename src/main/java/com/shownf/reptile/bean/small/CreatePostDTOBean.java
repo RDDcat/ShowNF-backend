@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreatePostDTOBean {
 
+    // 게시물 조회시 DTO 생성
     public RequestPostDTO exec(PostDAO postDAO){
         RequestPostDTO requestPostDTO = new RequestPostDTO();
 
