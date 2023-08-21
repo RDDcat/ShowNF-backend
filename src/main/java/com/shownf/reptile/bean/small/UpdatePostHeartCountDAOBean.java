@@ -33,4 +33,20 @@ public class UpdatePostHeartCountDAOBean {
         // 게시물 반환
         return postDAO;
     }
+
+    // 게시물 좋아요 갯수 감소
+    public PostDAO exec(Long hId, PostHeartDAO postHeartDAO){
+
+        // pId 가져오기
+        Long pId = postHeartDAO.getPId();
+
+        // pId 로 게시물 찾기
+        PostDAO postDAO = postRepositoryJPA.findById(pId).get();
+
+        // 게시물 좋아요 수 1 감소
+        postDAO.setHeartCount(postDAO.getHeartCount() - 1);
+
+        // 게시물 반환
+        return postDAO;
+    }
 }
