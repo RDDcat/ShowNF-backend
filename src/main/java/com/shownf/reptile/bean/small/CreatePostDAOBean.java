@@ -30,7 +30,10 @@ public class CreatePostDAOBean {
         // 게시물 좋아요 갯수
         Integer heartCount = 0;
 
+        // 게시물 댓글 갯수
+        Integer commentCount = 0;
+
         // DTO 반환
-        return new PostDAO(pId, uId, title, content, category, localDateTime, heartCount);
+        return new PostDAO(pId, uId, title, content, category, localDateTime, heartCount, commentCount);
     }
 }

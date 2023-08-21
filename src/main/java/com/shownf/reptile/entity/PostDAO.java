@@ -23,4 +23,5 @@ public class PostDAO {
     String category;
     LocalDateTime uploadTime;
     Integer heartCount;
+    Integer commentCount;
 }

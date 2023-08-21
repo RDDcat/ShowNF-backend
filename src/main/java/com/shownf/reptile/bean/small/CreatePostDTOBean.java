@@ -19,6 +19,7 @@ public class CreatePostDTOBean {
         requestPostDTO.setCategory(postDAO.getCategory());
         requestPostDTO.setUploadTime(postDAO.getUploadTime());
         requestPostDTO.setHeartCount(postDAO.getHeartCount());
+        requestPostDTO.setCommentCount(postDAO.getCommentCount());
 
         // DTO 반환
         return requestPostDTO;
