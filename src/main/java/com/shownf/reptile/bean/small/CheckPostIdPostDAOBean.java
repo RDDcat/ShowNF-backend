@@ -7,7 +7,7 @@ import com.shownf.reptile.entity.PostHeartDAO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CheckPostIdPostHeartDAOBean {
+public class CheckPostIdPostDAOBean {
 
     // 좋아요 pId 판별
     public boolean exec(PostHeartDAO postHeartDAO, RequestPostHeartDeleteDTO requestPostHeartDeleteDTO){
@@ -18,7 +18,7 @@ public class CheckPostIdPostHeartDAOBean {
 
     // 댓글 pId 판별
     public boolean exec(CommentDAO commentDAO, RequestCommentDeleteDTO requestCommentDeleteDTO){
-        if (commentDAO.getPId().equals(requestPostHeartDeleteDTO.getPId()))
+        if (commentDAO.getPId().equals(requestCommentDeleteDTO.getPId()))
             return true;
         return false;
     }
