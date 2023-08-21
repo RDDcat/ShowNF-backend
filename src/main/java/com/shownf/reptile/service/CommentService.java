@@ -1,9 +1,9 @@
 package com.shownf.reptile.service;
 
+import com.shownf.reptile.DTO.RequestCommentDeleteDTO;
 import com.shownf.reptile.DTO.RequestCommentSaveDTO;
 import com.shownf.reptile.DTO.RequestCommentsDTO;
-import com.shownf.reptile.DTO.RequestPostDTO;
-import com.shownf.reptile.DTO.RequestPostSaveDTO;
+import com.shownf.reptile.bean.DeleteCommentBean;
 import com.shownf.reptile.bean.GetCommentsBean;
 import com.shownf.reptile.bean.SaveCommentBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +16,14 @@ public class CommentService {
 
     GetCommentsBean getCommentsBean;
     SaveCommentBean saveCommentBean;
+    DeleteCommentBean deleteCommentBean;
 
 
     @Autowired
-    public CommentService(GetCommentsBean getCommentsBean, SaveCommentBean saveCommentBean) {
+    public CommentService(GetCommentsBean getCommentsBean, SaveCommentBean saveCommentBean, DeleteCommentBean deleteCommentBean) {
         this.getCommentsBean = getCommentsBean;
         this.saveCommentBean = saveCommentBean;
+        this.deleteCommentBean = deleteCommentBean;
     }
 
     // 댓글 전체 조회
@@ -37,4 +39,8 @@ public class CommentService {
     // 댓글 수정
 
     // 댓글 삭제
+    public Long deleteComment(RequestCommentDeleteDTO requestCommentDeleteDTO){
+        return deleteCommentBean.exec(requestCommentDeleteDTO);
+    }
+
 }
