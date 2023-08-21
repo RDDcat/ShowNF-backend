@@ -27,7 +27,10 @@ public class CreatePostDAOBean {
         // 시간
         LocalDateTime localDateTime = LocalDateTime.now();
 
+        // 게시물 좋아요 갯수
+        Integer heartCount = 0;
+
         // DTO 반환
-        return new PostDAO(pId, uId, title, content, category, localDateTime);
+        return new PostDAO(pId, uId, title, content, category, localDateTime, heartCount);
     }
 }
