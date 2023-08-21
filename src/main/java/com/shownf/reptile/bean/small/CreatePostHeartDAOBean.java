@@ -1,6 +1,6 @@
 package com.shownf.reptile.bean.small;
 
-import com.shownf.reptile.DTO.RequestPostHeartDTO;
+import com.shownf.reptile.DTO.RequestPostHeartSaveDTO;
 import com.shownf.reptile.entity.PostHeartDAO;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class CreatePostHeartDAOBean {
 
     // 좋아요 저장시 DAO 생성
-    public PostHeartDAO exec(Long hId, RequestPostHeartDTO requestPostHeartDTO){
+    public PostHeartDAO exec(Long hId, RequestPostHeartSaveDTO requestPostHeartDTO){
 
         // 게시물 아이디
         Long pId = requestPostHeartDTO.getPId();

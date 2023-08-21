@@ -1,6 +1,6 @@
 package com.shownf.reptile.controller;
 
-import com.shownf.reptile.DTO.RequestPostHeartDTO;
+import com.shownf.reptile.DTO.RequestPostHeartSaveDTO;
 import com.shownf.reptile.service.PostHeartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class PostHeartController {
 
     // 게시물 좋아요 추가
     @PostMapping("postHeart")
-    public ResponseEntity<Map<String, Object>> savePost(@RequestBody RequestPostHeartDTO requestPostHeartDTO){
+    public ResponseEntity<Map<String, Object>> savePost(@RequestBody RequestPostHeartSaveDTO requestPostHeartDTO){
         Long hId = postHeartService.savePostHeart(requestPostHeartDTO);
 
         // HTTP 상태 변환

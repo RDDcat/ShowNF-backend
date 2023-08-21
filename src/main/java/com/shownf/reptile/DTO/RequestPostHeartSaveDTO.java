@@ -3,7 +3,7 @@ package com.shownf.reptile.DTO;
 import lombok.Data;
 
 @Data
-public class RequestPostHeartDTO {
+public class RequestPostHeartSaveDTO {
     Long pId;
     String uId;
 }

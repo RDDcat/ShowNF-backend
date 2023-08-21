@@ -1,6 +1,6 @@
 package com.shownf.reptile.bean;
 
-import com.shownf.reptile.DTO.RequestPostHeartDTO;
+import com.shownf.reptile.DTO.RequestPostHeartSaveDTO;
 import com.shownf.reptile.bean.small.*;
 import com.shownf.reptile.entity.PostDAO;
 import com.shownf.reptile.entity.PostHeartDAO;
@@ -25,7 +25,7 @@ public class SavePostHeartBean {
         this.savePostDAOBean = savePostDAOBean;
     }
 
-    public Long exec(RequestPostHeartDTO requestPostHeartDTO){
+    public Long exec(RequestPostHeartSaveDTO requestPostHeartDTO){
         // hId 생성
         Long hId = createUniqueIdBean.exec();
 
