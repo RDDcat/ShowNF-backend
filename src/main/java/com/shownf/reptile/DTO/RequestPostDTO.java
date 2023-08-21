@@ -14,4 +14,5 @@ public class RequestPostDTO {
     LocalDateTime uploadTime;
     Integer heartCount;
     Integer commentCount;
+    Integer viewCount;
 }

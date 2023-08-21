@@ -20,6 +20,7 @@ public class CreatePostDTOBean {
         requestPostDTO.setUploadTime(postDAO.getUploadTime());
         requestPostDTO.setHeartCount(postDAO.getHeartCount());
         requestPostDTO.setCommentCount(postDAO.getCommentCount());
+        requestPostDTO.setViewCount(postDAO.getViewCount());
 
         // DTO 반환
         return requestPostDTO;

@@ -33,7 +33,10 @@ public class CreatePostDAOBean {
         // 게시물 댓글 갯수
         Integer commentCount = 0;
 
+        // 조회수
+        Integer viewCount = 0;
+
         // DTO 반환
-        return new PostDAO(pId, uId, title, content, category, localDateTime, heartCount, commentCount);
+        return new PostDAO(pId, uId, title, content, category, localDateTime, heartCount, commentCount, viewCount);
     }
 }

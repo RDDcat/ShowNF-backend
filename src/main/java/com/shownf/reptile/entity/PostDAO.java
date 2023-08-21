@@ -24,4 +24,5 @@ public class PostDAO {
     LocalDateTime uploadTime;
     Integer heartCount;
     Integer commentCount;
+    Integer viewCount;
 }
