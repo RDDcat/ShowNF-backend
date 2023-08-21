@@ -25,12 +25,12 @@ public class SavePostHeartBean {
         this.savePostDAOBean = savePostDAOBean;
     }
 
-    public Long exec(RequestPostHeartSaveDTO requestPostHeartDTO){
+    public Long exec(RequestPostHeartSaveDTO requestPostHeartSaveDTO){
         // hId 생성
         Long hId = createUniqueIdBean.exec();
 
         // DTO 객체 DAO 변환
-        PostHeartDAO postHeartDAO = createPostHeartDAOBean.exec(hId, requestPostHeartDTO);
+        PostHeartDAO postHeartDAO = createPostHeartDAOBean.exec(hId, requestPostHeartSaveDTO);
 
         // 좋아요 저장
         savePostHeartDAOBean.exec(postHeartDAO);
