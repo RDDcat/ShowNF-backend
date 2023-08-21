@@ -12,4 +12,5 @@ public class RequestPostDTO {
     String content;
     String category;
     LocalDateTime uploadTime;
+    Integer heartCount;
 }
