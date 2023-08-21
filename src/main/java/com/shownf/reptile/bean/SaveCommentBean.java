@@ -1,9 +1,7 @@
 package com.shownf.reptile.bean;
 
 import com.shownf.reptile.DTO.RequestCommentSaveDTO;
-import com.shownf.reptile.bean.small.CreateCommentDAOBean;
-import com.shownf.reptile.bean.small.CreateUniqueIdBean;
-import com.shownf.reptile.bean.small.SaveCommentDAOBean;
+import com.shownf.reptile.bean.small.*;
 import com.shownf.reptile.entity.CommentDAO;
 import com.shownf.reptile.entity.PostDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +13,16 @@ public class SaveCommentBean {
     CreateUniqueIdBean createUniqueIdBean;
     CreateCommentDAOBean createCommentDAOBean;
     SaveCommentDAOBean saveCommentDAOBean;
+    UpdatePostCommentCountDAOBean updatePostCommentCountDAOBean;
+    SavePostDAOBean savePostDAOBean;
 
     @Autowired
-    public SaveCommentBean(CreateUniqueIdBean createUniqueIdBean, CreateCommentDAOBean createCommentDAOBean, SaveCommentDAOBean saveCommentDAOBean) {
+    public SaveCommentBean(CreateUniqueIdBean createUniqueIdBean, CreateCommentDAOBean createCommentDAOBean, SaveCommentDAOBean saveCommentDAOBean, UpdatePostCommentCountDAOBean updatePostCommentCountDAOBean, SavePostDAOBean savePostDAOBean) {
         this.createUniqueIdBean = createUniqueIdBean;
         this.createCommentDAOBean = createCommentDAOBean;
         this.saveCommentDAOBean = saveCommentDAOBean;
+        this.updatePostCommentCountDAOBean = updatePostCommentCountDAOBean;
+        this.savePostDAOBean = savePostDAOBean;
     }
 
     public Long exec(RequestCommentSaveDTO requestCommentSaveDTO){
@@ -35,6 +37,12 @@ public class SaveCommentBean {
 
         // 댓글 저장
         saveCommentDAOBean.exec(commentDAO);
+
+        // 댓글 저장에 따른 게시물 댓글 갯수 추가
+        PostDAO postDAO = updatePostCommentCountDAOBean.exec(commentDAO);
+
+        // 게시물 저장
+        savePostDAOBean.exec(postDAO);
 
         // 댓글 cId 반환
         return cId;
