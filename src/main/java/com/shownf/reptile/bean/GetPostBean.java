@@ -27,7 +27,7 @@ public class GetPostBean {
         PostDAO postDAO = getPostDAOBean.exec(pId);
 
         // uId 일치여부 확인
-        if (checkUserIdPostDAOBean.exec(postDAO, uId) == false)
+        if (!checkUserIdPostDAOBean.exec(postDAO, uId))
             return null;
 
         // DTO 에 게시물 객체 넘기기

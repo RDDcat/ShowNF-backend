@@ -11,17 +11,17 @@ import org.springframework.stereotype.Component;
 public class DeletePostHeartBean {
 
     GetPostHeartDAOBean getPostHeartDAOBean;
-    CheckPostIdPostHeartDAOBean checkPostIdPostHeartDAOBean;
-    CheckUserIdPostHeartDAOBean checkUserIdPostHeartDAOBean;
+    CheckPostIdPostDAOBean checkPostIdPostDAOBean;
+    CheckUserIdPostDAOBean checkUserIdPostDAOBean;
     DeletePostHeartDAOBean deletePostHeartDAOBean;
     UpdatePostHeartCountDAOBean updatePostHeartCountDAOBean;
     SavePostDAOBean savePostDAOBean;
 
     @Autowired
-    public DeletePostHeartBean(GetPostHeartDAOBean getPostHeartDAOBean, CheckPostIdPostHeartDAOBean checkPostIdPostHeartDAOBean, CheckUserIdPostHeartDAOBean checkUserIdPostHeartDAOBean, DeletePostHeartDAOBean deletePostHeartDAOBean, UpdatePostHeartCountDAOBean updatePostHeartCountDAOBean, SavePostDAOBean savePostDAOBean) {
+    public DeletePostHeartBean(GetPostHeartDAOBean getPostHeartDAOBean, CheckPostIdPostDAOBean checkPostIdPostDAOBean, CheckUserIdPostDAOBean checkUserIdPostDAOBean, DeletePostHeartDAOBean deletePostHeartDAOBean, UpdatePostHeartCountDAOBean updatePostHeartCountDAOBean, SavePostDAOBean savePostDAOBean) {
         this.getPostHeartDAOBean = getPostHeartDAOBean;
-        this.checkPostIdPostHeartDAOBean = checkPostIdPostHeartDAOBean;
-        this.checkUserIdPostHeartDAOBean = checkUserIdPostHeartDAOBean;
+        this.checkPostIdPostDAOBean = checkPostIdPostDAOBean;
+        this.checkUserIdPostDAOBean = checkUserIdPostDAOBean;
         this.deletePostHeartDAOBean = deletePostHeartDAOBean;
         this.updatePostHeartCountDAOBean = updatePostHeartCountDAOBean;
         this.savePostDAOBean = savePostDAOBean;
@@ -36,11 +36,11 @@ public class DeletePostHeartBean {
         PostHeartDAO postHeartDAO = getPostHeartDAOBean.exec(hId);
 
         // 좋아요 해당하는 게시물 확인
-        if (!checkPostIdPostHeartDAOBean.exec(postHeartDAO, requestPostHeartDeleteDTO))
+        if (!checkPostIdPostDAOBean.exec(postHeartDAO, requestPostHeartDeleteDTO))
             return null;
 
         // 좋아요 해당하는 유저 확인
-        if (!checkUserIdPostHeartDAOBean.exec(postHeartDAO, requestPostHeartDeleteDTO))
+        if (!checkUserIdPostDAOBean.exec(postHeartDAO, requestPostHeartDeleteDTO))
             return null;
 
         // 좋아요 삭제
