@@ -22,4 +22,5 @@ public class CommentDAO {
     String content;
     LocalDateTime uploadTime;
     Integer heartCount;
+    Integer replyCount;
 }

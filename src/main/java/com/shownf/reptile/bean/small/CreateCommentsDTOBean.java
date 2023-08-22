@@ -25,6 +25,7 @@ public class CreateCommentsDTOBean {
             requestCommentsDTO.setContent(commentDAO.getContent());
             requestCommentsDTO.setUploadTime(commentDAO.getUploadTime());
             requestCommentsDTO.setHeartCount(commentDAO.getHeartCount());
+            requestCommentsDTO.setReplyCount(commentDAO.getReplyCount());
 
             requestCommentsDTOs.add(requestCommentsDTO);
         }

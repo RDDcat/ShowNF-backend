@@ -27,6 +27,9 @@ public class CreateCommentDAOBean {
         // 좋아요 갯수
         Integer heartCount = 0;
 
-        return  new CommentDAO(cId, pId, uId, content, localDateTime, heartCount);
+        // 대댓글 갯수
+        Integer replyCount = 0;
+
+        return  new CommentDAO(cId, pId, uId, content, localDateTime, heartCount, replyCount);
     }
 }

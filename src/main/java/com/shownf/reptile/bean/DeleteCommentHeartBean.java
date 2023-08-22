@@ -14,16 +14,16 @@ public class DeleteCommentHeartBean {
     CheckCommentIdCommentDAOBean checkCommentIdCommentDAOBean;
     CheckUserIdCommentDAOBean checkUserIdCommentDAOBean;
     DeleteCommentHeartDAOBean deleteCommentHeartDAOBean;
-    UpdateCommentHeartDAOBean updateCommentHeartDAOBean;
+    UpdateCommentHeartCountDAOBean updateCommentHeartCountDAOBean;
     SaveCommentDAOBean saveCommentDAOBean;
 
     @Autowired
-    public DeleteCommentHeartBean(GetCommentHeartDAOBean getCommentHeartDAOBean, CheckCommentIdCommentDAOBean checkCommentIdCommentDAOBean, CheckUserIdCommentDAOBean checkUserIdCommentDAOBean, DeleteCommentHeartDAOBean deleteCommentHeartDAOBean, UpdateCommentHeartDAOBean updateCommentHeartDAOBean, SaveCommentDAOBean saveCommentDAOBean) {
+    public DeleteCommentHeartBean(GetCommentHeartDAOBean getCommentHeartDAOBean, CheckCommentIdCommentDAOBean checkCommentIdCommentDAOBean, CheckUserIdCommentDAOBean checkUserIdCommentDAOBean, DeleteCommentHeartDAOBean deleteCommentHeartDAOBean, UpdateCommentHeartCountDAOBean updateCommentHeartCountDAOBean, SaveCommentDAOBean saveCommentDAOBean) {
         this.getCommentHeartDAOBean = getCommentHeartDAOBean;
         this.checkCommentIdCommentDAOBean = checkCommentIdCommentDAOBean;
         this.checkUserIdCommentDAOBean = checkUserIdCommentDAOBean;
         this.deleteCommentHeartDAOBean = deleteCommentHeartDAOBean;
-        this.updateCommentHeartDAOBean = updateCommentHeartDAOBean;
+        this.updateCommentHeartCountDAOBean = updateCommentHeartCountDAOBean;
         this.saveCommentDAOBean = saveCommentDAOBean;
     }
 
@@ -47,7 +47,7 @@ public class DeleteCommentHeartBean {
         deleteCommentHeartDAOBean.exec(commentHeartDAO);
 
         // 댓글 좋아요 갯수 감소
-        CommentDAO commentDAO = updateCommentHeartDAOBean.exec(cHId, commentHeartDAO);
+        CommentDAO commentDAO = updateCommentHeartCountDAOBean.exec(cHId, commentHeartDAO);
 
         // 댓글 저장
         saveCommentDAOBean.exec(commentDAO);

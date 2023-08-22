@@ -12,4 +12,5 @@ public class RequestCommentsDTO {
     String content;
     LocalDateTime uploadTime;
     Integer heartCount;
+    Integer replyCount;
 }

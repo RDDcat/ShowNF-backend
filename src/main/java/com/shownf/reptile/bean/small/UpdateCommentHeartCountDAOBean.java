@@ -2,18 +2,17 @@ package com.shownf.reptile.bean.small;
 
 import com.shownf.reptile.entity.CommentDAO;
 import com.shownf.reptile.entity.CommentHeartDAO;
-import com.shownf.reptile.entity.PostDAO;
 import com.shownf.reptile.repository.CommentRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UpdateCommentHeartDAOBean {
+public class UpdateCommentHeartCountDAOBean {
 
     CommentRepositoryJPA commentRepositoryJPA;
 
     @Autowired
-    public UpdateCommentHeartDAOBean(CommentRepositoryJPA commentRepositoryJPA) {
+    public UpdateCommentHeartCountDAOBean(CommentRepositoryJPA commentRepositoryJPA) {
         this.commentRepositoryJPA = commentRepositoryJPA;
     }
 
