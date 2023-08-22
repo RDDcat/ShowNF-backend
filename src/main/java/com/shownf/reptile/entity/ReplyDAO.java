@@ -7,15 +7,18 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class ReplyCommentDAO {
+public class ReplyDAO {
     @Id
-    Long rCId;
+    Long rId;
     Long cId;
     String uId;
+    String content;
+    LocalDateTime uploadTime;
 }
