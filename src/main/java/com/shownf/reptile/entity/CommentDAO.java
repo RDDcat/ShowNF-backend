@@ -21,4 +21,5 @@ public class CommentDAO {
     String uId;
     String content;
     LocalDateTime uploadTime;
+    Integer heartCount;
 }

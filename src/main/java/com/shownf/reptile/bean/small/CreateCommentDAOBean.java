@@ -24,6 +24,9 @@ public class CreateCommentDAOBean {
         // 시간
         LocalDateTime localDateTime = LocalDateTime.now();
 
-        return  new CommentDAO(cId, pId, uId, content, localDateTime);
+        // 좋아요 갯수
+        Integer heartCount = 0;
+
+        return  new CommentDAO(cId, pId, uId, content, localDateTime, heartCount);
     }
 }
