@@ -1,2 +1,10 @@
-package com.shownf.reptile.DTO;public class RequestReplyHeartDeleteDTO {
+package com.shownf.reptile.DTO;
+
+import lombok.Data;
+
+@Data
+public class RequestReplyHeartDeleteDTO {
+    Long rHId;
+    Long rId;
+    String uId;
 }
