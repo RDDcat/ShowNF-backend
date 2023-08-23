@@ -2,20 +2,19 @@ package com.shownf.reptile.controller;
 
 import com.shownf.reptile.DTO.RequestReplyDeleteDTO;
 import com.shownf.reptile.DTO.RequestReplySaveDTO;
+import com.shownf.reptile.DTO.RequestReplysDTO;
 import com.shownf.reptile.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @CrossOrigin("*")
 public class ReplyController {
 
@@ -24,6 +23,13 @@ public class ReplyController {
     @Autowired
     public ReplyController(ReplyService replyService) {
         this.replyService = replyService;
+    }
+
+    // 대댓글 전체 조회
+    @GetMapping("reply/{cId}")
+    public List<RequestReplysDTO> getReplys(@PathVariable Long cId){
+        System.out.println(replyService.getReplys(cId).get(0).getCId());
+        return replyService.getReplys(cId);
     }
 
     // 대댓글 저장
