@@ -24,7 +24,10 @@ public class CreateReplyDAOBean {
         // 시간
         LocalDateTime uploadTime = LocalDateTime.now();
 
+        // 대댓글 좋아요 갯수
+        Integer heartCount = 0;
+
         // DAO 반환
-        return new ReplyDAO(rId, cId, uId, content, uploadTime);
+        return new ReplyDAO(rId, cId, uId, content, uploadTime, heartCount);
     }
 }

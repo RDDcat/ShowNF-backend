@@ -21,4 +21,5 @@ public class ReplyDAO {
     String uId;
     String content;
     LocalDateTime uploadTime;
+    Integer heartCount;
 }
