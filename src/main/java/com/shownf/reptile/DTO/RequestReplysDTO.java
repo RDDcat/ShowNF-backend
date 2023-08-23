@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class RequestReplysDAOBean {
+public class RequestReplysDTO {
     Long rId;
     Long cId;
     String uId;
