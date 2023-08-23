@@ -1,2 +1,9 @@
-package com.shownf.reptile.DTO;public class RequestReplyHeartSaveDTO {
+package com.shownf.reptile.DTO;
+
+import lombok.Data;
+
+@Data
+public class RequestReplyHeartSaveDTO {
+    Long rId;
+    String uId;
 }
