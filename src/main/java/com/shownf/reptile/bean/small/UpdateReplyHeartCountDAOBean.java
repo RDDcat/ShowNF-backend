@@ -31,4 +31,20 @@ public class UpdateReplyHeartCountDAOBean {
         // 대댓글 반환
         return replyDAO;
     }
+
+    // 대댓글 좋아요 갯수 감소
+    public ReplyDAO exec(Long rHId, ReplyHeartDAO replyHeartDAO){
+
+        // rId 가져오기
+        Long rId = replyHeartDAO.getRId();
+
+        // rId 로 댓글 찾기
+        ReplyDAO replyDAO = replyRepositoryJPA.findById(rId).get();
+
+        // 대댓글 좋아요 수 1 감소
+        replyDAO.setHeartCount(replyDAO.getHeartCount() - 1);
+
+        // 대댓글 반환
+        return replyDAO;
+    }
 }
