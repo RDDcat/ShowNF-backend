@@ -9,28 +9,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class GetPostBean {
     GetPostDAOBean getPostDAOBean;
-    CheckUserIdPostDAOBean checkUserIdPostDAOBean;
     UpdatePostViewCountDAOBean updatePostViewCountDAOBean;
     SavePostDAOBean savePostDAOBean;
     CreatePostDTOBean createPostDTOBean;
 
     @Autowired
-    public GetPostBean(GetPostDAOBean getPostDAOBean, CheckUserIdPostDAOBean checkUserIdPostDAOBean, UpdatePostViewCountDAOBean updatePostViewCountDAOBean, SavePostDAOBean savePostDAOBean, CreatePostDTOBean createPostDTOBean) {
+    public GetPostBean(GetPostDAOBean getPostDAOBean, UpdatePostViewCountDAOBean updatePostViewCountDAOBean, SavePostDAOBean savePostDAOBean, CreatePostDTOBean createPostDTOBean) {
         this.getPostDAOBean = getPostDAOBean;
-        this.checkUserIdPostDAOBean = checkUserIdPostDAOBean;
         this.updatePostViewCountDAOBean = updatePostViewCountDAOBean;
         this.savePostDAOBean = savePostDAOBean;
         this.createPostDTOBean = createPostDTOBean;
     }
 
 
-    public RequestPostDTO exec(long pId, String uId){
+    public RequestPostDTO exec(long pId){
+
         // pId 로 게시물 찾기
         PostDAO postDAO = getPostDAOBean.exec(pId);
-
-        // uId 일치여부 확인
-        if (!checkUserIdPostDAOBean.exec(postDAO, uId))
-            return null;
 
         // 게시물 찾기로 인한 조회수 1 증가
         PostDAO findPostDAO = updatePostViewCountDAOBean.exec(postDAO);

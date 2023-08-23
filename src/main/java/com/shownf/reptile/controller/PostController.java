@@ -23,9 +23,9 @@ public class PostController {
     }
 
     // 게시물 조회
-    @GetMapping("post/{pId}/user/{uId}")
-    public RequestPostDTO getPost(@PathVariable long pId, @PathVariable String uId){
-        return postService.getPostDAO(pId, uId);
+    @GetMapping("post/{pId}")
+    public RequestPostDTO getPost(@PathVariable long pId){
+        return postService.getPostDAO(pId);
     }
 
     // 게시물 저장
