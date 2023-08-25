@@ -4,6 +4,8 @@ import com.shownf.reptile.DTO.RequestPostHeartSaveDTO;
 import com.shownf.reptile.entity.PostHeartDAO;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class CreatePostHeartDAOBean {
 
@@ -16,7 +18,10 @@ public class CreatePostHeartDAOBean {
         // 유저 아이디
         String uId = requestPostHeartSaveDTO.getUId();
 
+        // 업로드 시간
+        LocalDateTime uploadTime = LocalDateTime.now();
+
         // DAO 반환
-        return new PostHeartDAO(hId, pId, uId);
+        return new PostHeartDAO(hId, pId, uId, uploadTime);
     }
 }

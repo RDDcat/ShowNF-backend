@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -18,4 +19,5 @@ public class PostHeartDAO {
     Long hId;
     Long pId;
     String uId;
+    LocalDateTime uploadTime;
 }
