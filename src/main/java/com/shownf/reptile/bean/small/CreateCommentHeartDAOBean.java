@@ -4,6 +4,8 @@ import com.shownf.reptile.DTO.RequestCommentHeartSaveDTO;
 import com.shownf.reptile.entity.CommentHeartDAO;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class CreateCommentHeartDAOBean {
 
@@ -16,7 +18,10 @@ public class CreateCommentHeartDAOBean {
         // 유저 아이디
         String uId = requestCommentHeartSaveDTO.getUId();
 
+        // 업로드 시간
+        LocalDateTime uploadTime = LocalDateTime.now();
+
         // DAO 반환
-        return new CommentHeartDAO(cHid, cId, uId);
+        return new CommentHeartDAO(cHid, cId, uId, uploadTime);
     }
 }
