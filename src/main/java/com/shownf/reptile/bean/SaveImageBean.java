@@ -2,8 +2,10 @@ package com.shownf.reptile.bean;
 
 import com.shownf.reptile.bean.small.CreateImagesDAOBean;
 import com.shownf.reptile.bean.small.CreateUniqueIdBean;
+import com.shownf.reptile.bean.small.SaveImageUrlDAOBean;
 import com.shownf.reptile.bean.small.SaveImagesDAOBean;
 import com.shownf.reptile.entity.ImageDAO;
+import com.shownf.reptile.entity.ImageUrlDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -26,17 +28,21 @@ public class SaveImageBean {
     CreateUniqueIdBean createUniqueIdBean;
     CreateImagesDAOBean createImagesDAOBean;
     SaveImagesDAOBean saveImagesDAOBean;
+    SaveImageUrlDAOBean saveImageUrlDAOBean;
 
     @Autowired
-    public SaveImageBean(CreateUniqueIdBean createUniqueIdBean, CreateImagesDAOBean createImagesDAOBean, SaveImagesDAOBean saveImagesDAOBean) {
+    public SaveImageBean(CreateUniqueIdBean createUniqueIdBean, CreateImagesDAOBean createImagesDAOBean, SaveImagesDAOBean saveImagesDAOBean, SaveImageUrlDAOBean saveImageUrlDAOBean) {
         this.createUniqueIdBean = createUniqueIdBean;
         this.createImagesDAOBean = createImagesDAOBean;
         this.saveImagesDAOBean = saveImagesDAOBean;
+        this.saveImageUrlDAOBean = saveImageUrlDAOBean;
     }
 
     // 이미지 저장
     public void exec(List<MultipartFile> files) throws IOException {
         List<ImageDAO> imageDAOs = new ArrayList<>();
+        List<ImageUrlDAO> imageUrlDAOs = new ArrayList<>();
+
         for (MultipartFile file : files){
             String filename = file.getOriginalFilename();
             System.out.println("filename = " + filename);
@@ -58,27 +64,16 @@ public class SaveImageBean {
             LocalDateTime uploadTime = LocalDateTime.now();
 
             // 이미지 DAO 저장
-            imageDAOs.add(new ImageDAO(iId, imageName, "/static/" + filename, uploadTime));
+            imageDAOs.add(new ImageDAO(iId, imageName, uploadTime));
 
-
+            // 이미지 Url 저장
+            imageUrlDAOs.add(new ImageUrlDAO(iId, "/static/" + filename));
         }
-
-       /* String filename = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
-        Path filePath = Paths.get(uploadDirectory + "/" + filename);
-
-        // 이미지 파일을 static 디렉토리에 저장
-        Files.copy(file.getInputStream(), filePath);
-
-        return "/static/" + filename;
-
-        // File 객체 DAO 변환
-        List<ImageDAO> imageDAOs = createImagesDAOBean.exec(files);*/
 
         // 이미지 저장
         saveImagesDAOBean.exec(imageDAOs);
 
-        /*// 이미지 id 반환
-        return iId;*/
-
+        // 이미지 Url 저장
+        saveImageUrlDAOBean.exec(imageUrlDAOs);
     }
 }
