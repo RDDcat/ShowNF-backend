@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class SaveImageBean {
+public class SaveImagesBean {
 
     @Value("${upload.directory}")
     private String uploadDirectory;
@@ -26,7 +26,7 @@ public class SaveImageBean {
     SaveImagesDAOBean saveImagesDAOBean;
 
     @Autowired
-    public SaveImageBean(CreateUniqueIdBean createUniqueIdBean, SaveImagesDAOBean saveImagesDAOBean) {
+    public SaveImagesBean(CreateUniqueIdBean createUniqueIdBean, SaveImagesDAOBean saveImagesDAOBean) {
         this.createUniqueIdBean = createUniqueIdBean;
         this.saveImagesDAOBean = saveImagesDAOBean;
     }
@@ -55,8 +55,11 @@ public class SaveImageBean {
             // 업로드 시간
             LocalDateTime uploadTime = LocalDateTime.now();
 
+            // 이미지 좋아요 갯수
+            Integer heartCount = 0;
+
             // 이미지 DAO 저장
-            imageDAOs.add(new ImageDAO(iId, imageName, imageUrl, uploadTime));
+            imageDAOs.add(new ImageDAO(iId, imageName, imageUrl, uploadTime, heartCount));
 
         }
 

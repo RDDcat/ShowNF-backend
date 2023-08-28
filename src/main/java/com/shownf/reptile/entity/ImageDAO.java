@@ -20,4 +20,5 @@ public class ImageDAO {
     String imageName;
     String imageUrl;
     LocalDateTime uploadTime;
+    Integer heartCount;
 }

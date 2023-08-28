@@ -1,6 +1,6 @@
 package com.shownf.reptile.service;
 
-import com.shownf.reptile.bean.SaveImageBean;
+import com.shownf.reptile.bean.SaveImagesBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,10 +11,10 @@ import java.util.List;
 @Service
 public class ImageService {
 
-    SaveImageBean saveImageBean;
+    SaveImagesBean saveImageBean;
 
     @Autowired
-    public ImageService(SaveImageBean saveImageBean) {
+    public ImageService(SaveImagesBean saveImageBean) {
         this.saveImageBean = saveImageBean;
     }
 
