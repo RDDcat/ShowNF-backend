@@ -18,7 +18,6 @@ public class ImageDAO {
     @Id
     Long iId;
     String imageName;
-    /*String imageUrl;*/
-    /*byte[] information;*/
+    String imageUrl;
     LocalDateTime uploadTime;
 }
