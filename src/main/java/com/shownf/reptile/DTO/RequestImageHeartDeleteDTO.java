@@ -1,2 +1,10 @@
-package com.shownf.reptile.DTO;public class RequestImageHeartDeleteDTO {
+package com.shownf.reptile.DTO;
+
+import lombok.Data;
+
+@Data
+public class RequestImageHeartDeleteDTO {
+    Long iHId;
+    Long iId;
+    String uId;
 }
