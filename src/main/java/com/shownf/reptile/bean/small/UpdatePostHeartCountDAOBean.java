@@ -21,11 +21,11 @@ public class UpdatePostHeartCountDAOBean {
     // 게시물 좋아요 갯수 추가
     public PostDAO exec(PostHeartDAO postHeartDAO){
 
-        // pId 가져오기
-        Long pId = postHeartDAO.getPId();
+        // postId 가져오기
+        Long postId = postHeartDAO.getPostId();
 
-        // pId 로 게시물 찾기
-        PostDAO postDAO = postRepositoryJPA.findById(pId).get();
+        // postId 로 게시물 찾기
+        PostDAO postDAO = postRepositoryJPA.findById(postId).get();
 
         // 게시물 좋아요 수 1 증가
         postDAO.setHeartCount(postDAO.getHeartCount() + 1);
@@ -35,13 +35,13 @@ public class UpdatePostHeartCountDAOBean {
     }
 
     // 게시물 좋아요 갯수 감소
-    public PostDAO exec(Long hId, PostHeartDAO postHeartDAO){
+    public PostDAO exec(Long postHeartId, PostHeartDAO postHeartDAO){
 
-        // pId 가져오기
-        Long pId = postHeartDAO.getPId();
+        // postId 가져오기
+        Long postId = postHeartDAO.getPostId();
 
-        // pId 로 게시물 찾기
-        PostDAO postDAO = postRepositoryJPA.findById(pId).get();
+        // postId 로 게시물 찾기
+        PostDAO postDAO = postRepositoryJPA.findById(postId).get();
 
         // 게시물 좋아요 수 1 감소
         postDAO.setHeartCount(postDAO.getHeartCount() - 1);

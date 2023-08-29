@@ -30,10 +30,10 @@ public class DeletePostHeartBean {
     public Long exec(RequestPostHeartDeleteDTO requestPostHeartDeleteDTO){
 
         // 좋아요 아이디 찾기
-        Long hId = requestPostHeartDeleteDTO.getHId();
+        Long postHeartId = requestPostHeartDeleteDTO.getPostHeartId();
 
         // 아이디로 삭제할 좋아요 찾기
-        PostHeartDAO postHeartDAO = getPostHeartDAOBean.exec(hId);
+        PostHeartDAO postHeartDAO = getPostHeartDAOBean.exec(postHeartId);
 
         // 좋아요 해당하는 게시물 확인
         if (!checkPostIdPostDAOBean.exec(postHeartDAO, requestPostHeartDeleteDTO))
@@ -47,12 +47,12 @@ public class DeletePostHeartBean {
         deletePostHeartDAOBean.exec(postHeartDAO);
 
         // 게시물 좋아요 갯수 감소
-        PostDAO postDAO = updatePostHeartCountDAOBean.exec(hId, postHeartDAO);
+        PostDAO postDAO = updatePostHeartCountDAOBean.exec(postHeartId, postHeartDAO);
 
         // 게시물 저장
         savePostDAOBean.exec(postDAO);
 
-        // hId 반환
-        return hId;
+        // postHeartId 반환
+        return postHeartId;
     }
 }

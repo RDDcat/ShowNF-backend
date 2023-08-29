@@ -3,7 +3,6 @@ package com.shownf.reptile.bean.small;
 import com.shownf.reptile.DTO.RequestCommentDeleteDTO;
 import com.shownf.reptile.DTO.RequestPostHeartDeleteDTO;
 import com.shownf.reptile.entity.CommentDAO;
-import com.shownf.reptile.entity.PostDAO;
 import com.shownf.reptile.entity.PostHeartDAO;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +18,7 @@ public class CheckUserIdPostDAOBean {
 
     // 좋아요 uId 판별
     public boolean exec(PostHeartDAO postHeartDAO, RequestPostHeartDeleteDTO requestPostHeartDeleteDTO){
-        if (postHeartDAO.getUId().equals(requestPostHeartDeleteDTO.getUId()))
+        if (postHeartDAO.getUserId().equals(requestPostHeartDeleteDTO.getUserId()))
             return true;
         return false;
     }

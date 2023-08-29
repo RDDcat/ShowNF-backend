@@ -11,7 +11,7 @@ public class CheckPostIdPostDAOBean {
 
     // 좋아요 pId 판별
     public boolean exec(PostHeartDAO postHeartDAO, RequestPostHeartDeleteDTO requestPostHeartDeleteDTO){
-        if (postHeartDAO.getPId().equals(requestPostHeartDeleteDTO.getPId()))
+        if (postHeartDAO.getPostId().equals(requestPostHeartDeleteDTO.getPostId()))
             return true;
         return false;
     }

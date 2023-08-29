@@ -26,11 +26,12 @@ public class SavePostHeartBean {
     }
 
     public Long exec(RequestPostHeartSaveDTO requestPostHeartSaveDTO){
-        // hId 생성
-        Long hId = createUniqueIdBean.exec();
+
+        // postHeartId 생성
+        Long postHeartId = createUniqueIdBean.exec();
 
         // DTO 객체 DAO 변환
-        PostHeartDAO postHeartDAO = createPostHeartDAOBean.exec(hId, requestPostHeartSaveDTO);
+        PostHeartDAO postHeartDAO = createPostHeartDAOBean.exec(postHeartId, requestPostHeartSaveDTO);
 
         // 좋아요 저장
         savePostHeartDAOBean.exec(postHeartDAO);
@@ -41,7 +42,7 @@ public class SavePostHeartBean {
         // 게시물 저장
         savePostDAOBean.exec(postDAO);
 
-        // hId 반환
-        return hId;
+        // postHeartId 반환
+        return postHeartId;
     }
 }

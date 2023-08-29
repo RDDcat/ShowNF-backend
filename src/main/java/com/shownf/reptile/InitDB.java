@@ -41,11 +41,11 @@ public class InitDB {
             postRepositoryJPA.save(postDAO2);
             postRepositoryJPA.save(postDAO3);
 
-            PostHeartDAO postHeartDAO1 = new PostHeartDAO(11L, postDAO1.getPId(), "아이폰", LocalDateTime.now());
-            PostHeartDAO postHeartDAO2 = new PostHeartDAO(12L, postDAO1.getPId(), "갤럭시", LocalDateTime.now());
-            PostHeartDAO postHeartDAO3 = new PostHeartDAO(13L, postDAO1.getPId(), "모터롤라", LocalDateTime.now());
-            PostHeartDAO postHeartDAO4 = new PostHeartDAO(14L, postDAO2.getPId(), "베가", LocalDateTime.now());
-            PostHeartDAO postHeartDAO5 = new PostHeartDAO(15L, postDAO2.getPId(), "매직콜", LocalDateTime.now());
+            PostHeartDAO postHeartDAO1 = new PostHeartDAO(11L, postDAO1.getPostId(), "아이폰", LocalDateTime.now());
+            PostHeartDAO postHeartDAO2 = new PostHeartDAO(12L, postDAO1.getPostId(), "갤럭시", LocalDateTime.now());
+            PostHeartDAO postHeartDAO3 = new PostHeartDAO(13L, postDAO1.getPostId(), "모터롤라", LocalDateTime.now());
+            PostHeartDAO postHeartDAO4 = new PostHeartDAO(14L, postDAO2.getPostId(), "베가", LocalDateTime.now());
+            PostHeartDAO postHeartDAO5 = new PostHeartDAO(15L, postDAO2.getPostId(), "매직콜", LocalDateTime.now());
 
             postHeartRepositoryJPA.save(postHeartDAO1);
             postHeartRepositoryJPA.save(postHeartDAO2);
@@ -53,10 +53,10 @@ public class InitDB {
             postHeartRepositoryJPA.save(postHeartDAO4);
             postHeartRepositoryJPA.save(postHeartDAO5);
 
-            CommentDAO commentDAO1 = new CommentDAO(0L, postDAO1.getPId(), "토레타", "테스트 내용1", LocalDateTime.now(), 0, 0);
-            CommentDAO commentDAO2 = new CommentDAO(1L, postDAO2.getPId(), "파워에이드", "테스트 내용2", LocalDateTime.now(), 0, 0);
-            CommentDAO commentDAO3 = new CommentDAO(2L, postDAO2.getPId(), "콜라", "테스트 내용3", LocalDateTime.now(), 1, 2);
-            CommentDAO commentDAO4 = new CommentDAO(3L, postDAO2.getPId(), "사이다", "테스트 내용4", LocalDateTime.now(), 3, 1);
+            CommentDAO commentDAO1 = new CommentDAO(0L, postDAO1.getPostId(), "토레타", "테스트 내용1", LocalDateTime.now(), 0, 0);
+            CommentDAO commentDAO2 = new CommentDAO(1L, postDAO2.getPostId(), "파워에이드", "테스트 내용2", LocalDateTime.now(), 0, 0);
+            CommentDAO commentDAO3 = new CommentDAO(2L, postDAO2.getPostId(), "콜라", "테스트 내용3", LocalDateTime.now(), 1, 2);
+            CommentDAO commentDAO4 = new CommentDAO(3L, postDAO2.getPostId(), "사이다", "테스트 내용4", LocalDateTime.now(), 3, 1);
 
             commentRepositoryJPA.save(commentDAO1);
             commentRepositoryJPA.save(commentDAO2);

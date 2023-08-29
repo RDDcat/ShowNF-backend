@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class RequestPostHeartDeleteDTO {
-    Long hId;
-    Long pId;
-    String uId;
+    Long postHeartId;
+    Long postId;
+    String userId;
 }

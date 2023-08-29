@@ -16,7 +16,7 @@ public class GetPostHeartDAOBean {
     }
 
     // 좋아요 객체 찾기
-    public PostHeartDAO exec(Long hId){
-        return postHeartRepositoryJPA.findById(hId).get();
+    public PostHeartDAO exec(Long postHeartId){
+        return postHeartRepositoryJPA.findById(postHeartId).get();
     }
 }

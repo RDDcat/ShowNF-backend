@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @Setter
 public class PostHeartDAO {
     @Id
-    Long hId;
-    Long pId;
-    String uId;
+    Long postHeartId;
+    Long postId;
+    String userId;
     LocalDateTime uploadTime;
 }
