@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 
 @Data
 public class RequestReplysDTO {
-    Long rId;
-    Long cId;
-    String uId;
+    Long replyId;
+    Long commentId;
+    String userId;
     String content;
     LocalDateTime uploadTime;
     Integer heartCount;

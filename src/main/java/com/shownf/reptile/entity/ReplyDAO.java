@@ -16,9 +16,9 @@ import java.time.LocalDateTime;
 @Setter
 public class ReplyDAO {
     @Id
-    Long rId;
-    Long cId;
-    String uId;
+    Long replyId;
+    Long commentId;
+    String userId;
     String content;
     LocalDateTime uploadTime;
     Integer heartCount;

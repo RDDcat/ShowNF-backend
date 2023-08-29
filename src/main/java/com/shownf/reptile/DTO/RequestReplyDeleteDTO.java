@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class RequestReplyDeleteDTO {
-    Long rId;
-    Long cId;
-    String uId;
+    Long replyId;
+    Long commentId;
+    String userId;
 }

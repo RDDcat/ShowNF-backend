@@ -81,9 +81,9 @@ public class InitDB {
             replyRepositoryJPA.save(replyDAO2);
             replyRepositoryJPA.save(replyDAO3);
 
-            ReplyHeartDAO replyHeartDAO1 = new ReplyHeartDAO(31L, replyDAO1.getRId(), "아이폰", LocalDateTime.now());
-            ReplyHeartDAO replyHeartDAO2 = new ReplyHeartDAO(32L, replyDAO2.getRId(), "갤럭시", LocalDateTime.now());
-            ReplyHeartDAO replyHeartDAO3 = new ReplyHeartDAO(33L, replyDAO2.getRId(), "매직콜", LocalDateTime.now());
+            ReplyHeartDAO replyHeartDAO1 = new ReplyHeartDAO(31L, replyDAO1.getReplyId(), "아이폰", LocalDateTime.now());
+            ReplyHeartDAO replyHeartDAO2 = new ReplyHeartDAO(32L, replyDAO2.getReplyId(), "갤럭시", LocalDateTime.now());
+            ReplyHeartDAO replyHeartDAO3 = new ReplyHeartDAO(33L, replyDAO2.getReplyId(), "매직콜", LocalDateTime.now());
 
             replyHeartRepositoryJPA.save(replyHeartDAO1);
             replyHeartRepositoryJPA.save(replyHeartDAO2);

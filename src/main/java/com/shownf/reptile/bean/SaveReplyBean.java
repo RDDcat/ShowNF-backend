@@ -30,13 +30,14 @@ public class SaveReplyBean {
         this.savePostDAOBean = savePostDAOBean;
     }
 
+    // 대댓글 저장
     public Long exec(RequestReplySaveDTO requestReplySaveDTO){
 
-        // rId 생성
-        Long rId = createUniqueIdBean.exec();
+        // replyId 생성
+        Long replyId = createUniqueIdBean.exec();
 
         // DTO 객체 DAO 변환
-        ReplyDAO replyDAO = createReplyDAOBean.exec(rId, requestReplySaveDTO);
+        ReplyDAO replyDAO = createReplyDAOBean.exec(replyId, requestReplySaveDTO);
 
         // 대댓글 저장
         saveReplyDAOBean.exec(replyDAO);
@@ -53,7 +54,7 @@ public class SaveReplyBean {
         // 게시물 저장
         savePostDAOBean.exec(postDAO);
 
-        // 대댓글 rId 반환
-        return rId;
+        // 대댓글 replyId 반환
+        return replyId;
     }
 }

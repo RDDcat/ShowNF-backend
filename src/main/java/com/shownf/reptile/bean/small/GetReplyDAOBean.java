@@ -16,7 +16,7 @@ public class GetReplyDAOBean {
     }
 
     // 대댓글 찾기
-    public ReplyDAO exec(Long rId){
-        return replyRepositoryJPA.findById(rId).get();
+    public ReplyDAO exec(Long replyId){
+        return replyRepositoryJPA.findById(replyId).get();
     }
 }

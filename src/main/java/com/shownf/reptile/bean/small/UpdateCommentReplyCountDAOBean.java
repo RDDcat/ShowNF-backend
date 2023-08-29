@@ -19,11 +19,11 @@ public class UpdateCommentReplyCountDAOBean {
     // 댓글 대댓글 갯수 추가
     public CommentDAO exec(ReplyDAO replyDAO){
 
-        // cId 가져오기
-        Long cId = replyDAO.getCId();
+        // commentId 가져오기
+        Long commentId = replyDAO.getCommentId();
 
-        // cId 로 댓글 찾기
-        CommentDAO commentDAO = commentRepositoryJPA.findById(cId).get();
+        // commentId 로 댓글 찾기
+        CommentDAO commentDAO = commentRepositoryJPA.findById(commentId).get();
 
         // 댓글 대댓글 수 1 증가
         commentDAO.setReplyCount(commentDAO.getReplyCount() + 1);
@@ -33,13 +33,13 @@ public class UpdateCommentReplyCountDAOBean {
     }
 
     // 댓글 대댓글 갯수 감소
-    public CommentDAO exec(Long rId, ReplyDAO replyDAO){
+    public CommentDAO exec(Long replyId, ReplyDAO replyDAO){
 
-        // cId 가져오기
-        Long cId = replyDAO.getCId();
+        // commentId 가져오기
+        Long commentId = replyDAO.getCommentId();
 
-        // cId 로 댓글 찾기
-        CommentDAO commentDAO = commentRepositoryJPA.findById(cId).get();
+        // commentId 로 댓글 찾기
+        CommentDAO commentDAO = commentRepositoryJPA.findById(commentId).get();
 
         // 댓글 대댓글 수 1 증가
         commentDAO.setReplyCount(commentDAO.getReplyCount() - 1);

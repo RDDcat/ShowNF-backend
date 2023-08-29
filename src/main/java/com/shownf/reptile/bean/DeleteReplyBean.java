@@ -36,10 +36,10 @@ public class DeleteReplyBean {
     public Long exec(RequestReplyDeleteDTO requestReplyDeleteDTO){
 
         // 대댓글 아이디 찾기
-        Long rId = requestReplyDeleteDTO.getRId();
+        Long replyId = requestReplyDeleteDTO.getReplyId();
 
         // 아이디로 삭제할 대댓글 찾기
-        ReplyDAO replyDAO = getReplyDAOBean.exec(rId);
+        ReplyDAO replyDAO = getReplyDAOBean.exec(replyId);
 
         // 대댓글에 해당하는 댓글 확인
         if (!checkCommentIdCommentDAOBean.exec(replyDAO, requestReplyDeleteDTO))
@@ -53,18 +53,18 @@ public class DeleteReplyBean {
         deleteReplyDAOBean.exec(replyDAO);
 
         // 댓글 대댓글 갯수 감소
-        CommentDAO commentDAO = updateCommentReplyCountDAOBean.exec(rId, replyDAO);
+        CommentDAO commentDAO = updateCommentReplyCountDAOBean.exec(replyId, replyDAO);
 
         // 댓글 저장
         saveCommentDAOBean.exec(commentDAO);
 
         // 게시물 댓글 감소
-        PostDAO postDAO = updatePostCommentCountDAOBean.exec(rId, commentDAO);
+        PostDAO postDAO = updatePostCommentCountDAOBean.exec(replyId, commentDAO);
 
         // 게시물 저장
         savePostDAOBean.exec(postDAO);
 
-        // rId 반환
-        return rId;
+        // replyId 반환
+        return replyId;
     }
 }

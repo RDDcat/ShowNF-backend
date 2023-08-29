@@ -21,9 +21,9 @@ public class CreateReplysDTOBean {
         for (ReplyDAO replyDAO : replyDAOs){
             RequestReplysDTO requestReplysDTO = new RequestReplysDTO();
 
-            requestReplysDTO.setRId(replyDAO.getRId());
-            requestReplysDTO.setCId(replyDAO.getCId());
-            requestReplysDTO.setUId(replyDAO.getUId());
+            requestReplysDTO.setReplyId(replyDAO.getReplyId());
+            requestReplysDTO.setCommentId(replyDAO.getCommentId());
+            requestReplysDTO.setUserId(replyDAO.getUserId());
             requestReplysDTO.setContent(replyDAO.getContent());
             requestReplysDTO.setUploadTime(replyDAO.getUploadTime());
             requestReplysDTO.setHeartCount(replyDAO.getHeartCount());

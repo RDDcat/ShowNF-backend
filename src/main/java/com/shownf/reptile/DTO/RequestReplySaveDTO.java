@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class RequestReplySaveDTO {
-    Long cId;
-    String uId;
+    Long commentId;
+    String userId;
     String content;
 }

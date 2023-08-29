@@ -18,7 +18,7 @@ public class CheckUserIdCommentDAOBean {
 
     // 대댓글 uId 판별
     public boolean exec(ReplyDAO replyDAO, RequestReplyDeleteDTO requestReplyDeleteDTO){
-        if (replyDAO.getUId().equals(requestReplyDeleteDTO.getUId()))
+        if (replyDAO.getUserId().equals(requestReplyDeleteDTO.getUserId()))
             return true;
         return false;
     }

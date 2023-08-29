@@ -26,8 +26,8 @@ public class ReplyService {
     }
 
     // 대댓글 전체 조회
-    public List<RequestReplysDTO> getReplys(Long cId){
-        return getReplysBean.exec(cId);
+    public List<RequestReplysDTO> getReplys(Long commentId){
+        return getReplysBean.exec(commentId);
     }
 
     // 대댓글 저장

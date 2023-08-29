@@ -7,7 +7,6 @@ import com.shownf.reptile.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -26,24 +25,23 @@ public class ReplyController {
     }
 
     // 대댓글 전체 조회
-    @GetMapping("reply/{cId}")
-    public List<RequestReplysDTO> getReplys(@PathVariable Long cId){
-        System.out.println(replyService.getReplys(cId).get(0).getCId());
-        return replyService.getReplys(cId);
+    @GetMapping("reply/{commentId}")
+    public List<RequestReplysDTO> getReplys(@PathVariable Long commentId){
+        return replyService.getReplys(commentId);
     }
 
     // 대댓글 저장
     @PostMapping("reply")
     public ResponseEntity<Map<String, Object>> saveReply(@RequestBody RequestReplySaveDTO requestReplySaveDTO){
-        Long rid = replyService.saveReply(requestReplySaveDTO);
+        Long replyId = replyService.saveReply(requestReplySaveDTO);
 
         // HTTP 상태 변환
-        HttpStatus httpStatus = (rid != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus httpStatus = (replyId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
         // 메시지와 id 값 json 데이터로 반환
         Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("message", (rid != null) ? "Save Success" : "Save Fail");
-        requestMap.put("rid", rid);
+        requestMap.put("message", (replyId != null) ? "Save Success" : "Save Fail");
+        requestMap.put("replyId", replyId);
 
         return ResponseEntity.status(httpStatus).body(requestMap);
     }
@@ -51,15 +49,15 @@ public class ReplyController {
     // 대댓글 삭제
     @DeleteMapping("reply")
     public ResponseEntity<Map<String, Object>> deleteComment(@RequestBody RequestReplyDeleteDTO requestReplyDeleteDTO){
-        Long rId = replyService.deleteReply(requestReplyDeleteDTO);
+        Long replyId = replyService.deleteReply(requestReplyDeleteDTO);
 
         // HTTP 상태 반환
-        HttpStatus httpStatus = (rId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus httpStatus = (replyId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
         // 메시지와 id 값 json 데이터로 반환
         Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("message", (rId != null) ? "Delete Success" : "Delete Fail");
-        requestMap.put("rId", rId);
+        requestMap.put("message", (replyId != null) ? "Delete Success" : "Delete Fail");
+        requestMap.put("replyId", replyId);
 
         return ResponseEntity.status(httpStatus).body(requestMap);
     }

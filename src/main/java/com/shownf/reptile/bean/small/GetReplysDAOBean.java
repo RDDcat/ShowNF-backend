@@ -19,7 +19,7 @@ public class GetReplysDAOBean {
     }
 
     // 댓글에 해당하는 대댓글 전체 조회
-    public List<ReplyDAO> exec(Long cId){
-        return new ArrayList<>(replyRepositoryJPA.findBycId(cId));
+    public List<ReplyDAO> exec(Long commentId){
+        return new ArrayList<>(replyRepositoryJPA.findByCommentId(commentId));
     }
 }

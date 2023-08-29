@@ -22,10 +22,10 @@ public class GetReplysBean {
     }
 
     // 댓글에 해당하는 대댓글 전부 조회
-    public List<RequestReplysDTO> exec(Long cId){
+    public List<RequestReplysDTO> exec(Long commentId){
 
         // cId로 게시물에 해당하는 댓글 찾기
-        List<ReplyDAO> replyDAOs = getReplysDAOBean.exec(cId);
+        List<ReplyDAO> replyDAOs = getReplysDAOBean.exec(commentId);
 
         // DAO 객체 DTO 반환
         return createReplysDTOBean.exec(replyDAOs);

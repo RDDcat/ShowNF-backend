@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ReplyRepositoryJPA extends JpaRepository<ReplyDAO, Long> {
-    List<ReplyDAO> findBycId(Long cId);
+    List<ReplyDAO> findByCommentId(Long commentId);
 }

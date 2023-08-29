@@ -18,7 +18,7 @@ public class CheckCommentIdCommentDAOBean {
 
     // 대댓글 commentId 판별
     public boolean exec(ReplyDAO replyDAO, RequestReplyDeleteDTO requestReplyDeleteDTO){
-        if (replyDAO.getCId().equals(requestReplyDeleteDTO.getCId()))
+        if (replyDAO.getCommentId().equals(requestReplyDeleteDTO.getCommentId()))
             return true;
         return false;
     }
