@@ -22,10 +22,10 @@ public class GetPostBean {
     }
 
 
-    public RequestPostDTO exec(long pId){
+    public RequestPostDTO exec(long postId){
 
-        // pId 로 게시물 찾기
-        PostDAO postDAO = getPostDAOBean.exec(pId);
+        // postId 로 게시물 찾기
+        PostDAO postDAO = getPostDAOBean.exec(postId);
 
         // 게시물 찾기로 인한 조회수 1 증가
         PostDAO findPostDAO = updatePostViewCountDAOBean.exec(postDAO);

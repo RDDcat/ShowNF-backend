@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @Setter
 public class PostDAO {
     @Id
-    long pId;
-    String uId;
+    long postId;
+    String userId;
     String title;
     String content;
     String category;

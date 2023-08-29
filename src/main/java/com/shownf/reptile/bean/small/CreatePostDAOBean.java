@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 public class CreatePostDAOBean {
 
     // 게시물 저장시 DAO 생성
-    public PostDAO exec(long pId, RequestPostSaveDTO requestPostSaveDTO){
+    public PostDAO exec(long postId, RequestPostSaveDTO requestPostSaveDTO){
 
         // 유저 아이디
-        String uId = requestPostSaveDTO.getUId();
+        String userId = requestPostSaveDTO.getUserId();
 
         // 제목
         String title = requestPostSaveDTO.getTitle();
@@ -37,6 +37,6 @@ public class CreatePostDAOBean {
         Integer viewCount = 0;
 
         // DTO 반환
-        return new PostDAO(pId, uId, title, content, category, localDateTime, heartCount, commentCount, viewCount);
+        return new PostDAO(postId, userId, title, content, category, localDateTime, heartCount, commentCount, viewCount);
     }
 }

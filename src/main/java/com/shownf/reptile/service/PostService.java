@@ -20,12 +20,12 @@ public class PostService {
     }
 
     // 게시물 조회
-    public RequestPostDTO getPostDAO(long pId){
-        return getPostBean.exec(pId);
+    public RequestPostDTO getPostDAO(Long postId){
+        return getPostBean.exec(postId);
     }
 
     // 게시물 저장
-    public long savePostDAO(RequestPostSaveDTO requestPostSaveDTO){
+    public Long savePostDAO(RequestPostSaveDTO requestPostSaveDTO){
         return  savePostBean.exec(requestPostSaveDTO);
     }
 

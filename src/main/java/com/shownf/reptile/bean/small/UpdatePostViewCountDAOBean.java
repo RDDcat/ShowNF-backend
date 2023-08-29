@@ -18,11 +18,11 @@ public class UpdatePostViewCountDAOBean {
     // 게시물 찾기에 대한 조회수 1 증가
     public PostDAO exec(PostDAO postDAO){
 
-        // pId 가져오기
-        Long pId = postDAO.getPId();
+        // postId 가져오기
+        Long postId = postDAO.getPostId();
 
-        // pId 로 게시물 찾기
-        PostDAO postDAO1 = postRepositoryJPA.findById(pId).get();
+        // postId 로 게시물 찾기
+        PostDAO postDAO1 = postRepositoryJPA.findById(postId).get();
 
         // 게시물 조회수 1 증가
         postDAO1.setViewCount(postDAO.getViewCount() + 1);

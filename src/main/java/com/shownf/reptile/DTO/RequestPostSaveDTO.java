@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class RequestPostSaveDTO {
-    String uId;
+    String userId;
     String title;
     String content;
     String category;

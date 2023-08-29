@@ -12,8 +12,8 @@ public class CreatePostDTOBean {
         RequestPostDTO requestPostDTO = new RequestPostDTO();
 
         // DTO 객체에 게시물 정보 넘기기
-        requestPostDTO.setPId(postDAO.getPId());
-        requestPostDTO.setUId(postDAO.getUId());
+        requestPostDTO.setPostId(postDAO.getPostId());
+        requestPostDTO.setUserId(postDAO.getUserId());
         requestPostDTO.setTitle(postDAO.getTitle());
         requestPostDTO.setContent(postDAO.getContent());
         requestPostDTO.setCategory(postDAO.getCategory());

@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 
 @Data
 public class RequestPostDTO {
-    long pId;
-    String uId;
+    long postId;
+    String userId;
     String title;
     String content;
     String category;

@@ -23,16 +23,16 @@ public class SavePostBean {
     }
 
     public Long exec(RequestPostSaveDTO requestPostSaveDTO){
-        // pId 생성
-        long pId = createUniqueIdBean.exec();
+        // postId 생성
+        long postId = createUniqueIdBean.exec();
 
         // DTO 객체 DAO 변환
-        PostDAO postDAO = createPostDAOBean.exec(pId, requestPostSaveDTO);
+        PostDAO postDAO = createPostDAOBean.exec(postId, requestPostSaveDTO);
 
         // 게시물 저장
         savePostDAOBean.exec(postDAO);
 
-        // 게시물 pId 반환
-        return pId;
+        // 게시물 postId 반환
+        return postId;
     }
 }
