@@ -10,17 +10,17 @@ import java.time.LocalDateTime;
 public class CreateReplyHeartDAOBean {
 
     // 대댓글 좋아요 저장시 DAO 생성
-    public ReplyHeartDAO exec(Long rHId, RequestReplyHeartSaveDTO requestReplyHeartSaveDTO){
+    public ReplyHeartDAO exec(Long replyHeartId, RequestReplyHeartSaveDTO requestReplyHeartSaveDTO){
 
         // 대댓글 아이디
-        Long rId = requestReplyHeartSaveDTO.getRId();
+        Long replyId = requestReplyHeartSaveDTO.getReplyId();
 
         // 유저 아이디
-        String uId = requestReplyHeartSaveDTO.getUId();
+        String userId = requestReplyHeartSaveDTO.getUserId();
 
         // 시간
         LocalDateTime uploadTime = LocalDateTime.now();
 
-        return new ReplyHeartDAO(rHId, rId, uId, uploadTime);
+        return new ReplyHeartDAO(replyHeartId, replyId, userId, uploadTime);
     }
 }

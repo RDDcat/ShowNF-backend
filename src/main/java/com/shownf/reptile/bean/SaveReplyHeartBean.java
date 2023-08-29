@@ -28,11 +28,11 @@ public class SaveReplyHeartBean {
     // 대댓글 좋아요 저장
     public Long exec(RequestReplyHeartSaveDTO requestReplyHeartSaveDTO){
 
-        // rHId 생성
-        Long rHid = createUniqueIdBean.exec();
+        // replyHeartId 생성
+        Long replyHeartId = createUniqueIdBean.exec();
 
         // DTO 객체 DAO 변환
-        ReplyHeartDAO replyHeartDAO = createReplyHeartDAOBean.exec(rHid, requestReplyHeartSaveDTO);
+        ReplyHeartDAO replyHeartDAO = createReplyHeartDAOBean.exec(replyHeartId, requestReplyHeartSaveDTO);
 
         // 대댓글 좋아요 저장
         saveReplyHeartDAOBean.exec(replyHeartDAO);
@@ -43,7 +43,7 @@ public class SaveReplyHeartBean {
         // 대댓글 저장
         saveReplyDAOBean.exec(replyDAO);
 
-        // rHId 반환
-        return rHid;
+        // replyHeartId 반환
+        return replyHeartId;
     }
 }

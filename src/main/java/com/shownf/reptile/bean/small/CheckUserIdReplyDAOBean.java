@@ -9,7 +9,7 @@ public class CheckUserIdReplyDAOBean {
 
     // 대댓글 좋아요 uId 판별
     public boolean exec(ReplyHeartDAO replyHeartDAO, RequestReplyHeartDeleteDTO requestReplyHeartDeleteDTO){
-        if (replyHeartDAO.getUId().equals(requestReplyHeartDeleteDTO.getUId()))
+        if (replyHeartDAO.getUserId().equals(requestReplyHeartDeleteDTO.getUserId()))
             return true;
         return false;
     }

@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @Setter
 public class ReplyHeartDAO {
     @Id
-    Long rHId;
-    Long rId;
-    String uId;
+    Long replyHeartId;
+    Long replyId;
+    String userId;
     LocalDateTime uploadTime;
 }

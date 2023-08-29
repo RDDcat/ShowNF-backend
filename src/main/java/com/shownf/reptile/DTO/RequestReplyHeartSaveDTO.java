@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class RequestReplyHeartSaveDTO {
-    Long rId;
-    String uId;
+    Long replyId;
+    String userId;
 }

@@ -16,7 +16,7 @@ public class GetReplyHeartDAOBean {
     }
 
     // 대댓글 좋아요 객체 찾기
-    public ReplyHeartDAO exec(Long rHId){
-        return replyHeartRepositoryJPA.findById(rHId).get();
+    public ReplyHeartDAO exec(Long replyHeartId){
+        return replyHeartRepositoryJPA.findById(replyHeartId).get();
     }
 }
