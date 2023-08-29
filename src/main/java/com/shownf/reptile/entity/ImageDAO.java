@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 public class ImageDAO {
     @Id
-    Long iId;
+    Long imageId;
     String imageName;
     String imageUrl;
     LocalDateTime uploadTime;

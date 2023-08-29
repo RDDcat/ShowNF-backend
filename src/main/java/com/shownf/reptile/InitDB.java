@@ -131,12 +131,12 @@ public class InitDB {
             imageRepositoryJPA.save(imageDAO19);
             imageRepositoryJPA.save(imageDAO20);
 
-            ImageHeartDAO imageHeartDAO1 = new ImageHeartDAO(10L, imageDAO1.getIId(), "24남", LocalDateTime.now());
-            ImageHeartDAO imageHeartDAO2 = new ImageHeartDAO(11L, imageDAO1.getIId(), "21여", LocalDateTime.now());
-            ImageHeartDAO imageHeartDAO3 = new ImageHeartDAO(12L, imageDAO2.getIId(), "17고딩남", LocalDateTime.now());
-            ImageHeartDAO imageHeartDAO4 = new ImageHeartDAO(13L, imageDAO3.getIId(), "25남", LocalDateTime.now());
-            ImageHeartDAO imageHeartDAO5 = new ImageHeartDAO(14L, imageDAO3.getIId(), "24남", LocalDateTime.now());
-            ImageHeartDAO imageHeartDAO6 = new ImageHeartDAO(15L, imageDAO3.getIId(), "23남", LocalDateTime.now());
+            ImageHeartDAO imageHeartDAO1 = new ImageHeartDAO(10L, imageDAO1.getImageId(), "24남", LocalDateTime.now());
+            ImageHeartDAO imageHeartDAO2 = new ImageHeartDAO(11L, imageDAO1.getImageId(), "21여", LocalDateTime.now());
+            ImageHeartDAO imageHeartDAO3 = new ImageHeartDAO(12L, imageDAO2.getImageId(), "17고딩남", LocalDateTime.now());
+            ImageHeartDAO imageHeartDAO4 = new ImageHeartDAO(13L, imageDAO3.getImageId(), "25남", LocalDateTime.now());
+            ImageHeartDAO imageHeartDAO5 = new ImageHeartDAO(14L, imageDAO3.getImageId(), "24남", LocalDateTime.now());
+            ImageHeartDAO imageHeartDAO6 = new ImageHeartDAO(15L, imageDAO3.getImageId(), "23남", LocalDateTime.now());
 
             imageHeartRepositoryJPA.save(imageHeartDAO1);
             imageHeartRepositoryJPA.save(imageHeartDAO2);

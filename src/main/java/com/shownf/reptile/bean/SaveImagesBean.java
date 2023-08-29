@@ -37,14 +37,13 @@ public class SaveImagesBean {
 
         for (MultipartFile file : files){
             String filename = file.getOriginalFilename();
-            System.out.println("filename = " + filename);
             Path filePath = Paths.get(uploadDirectory + "/" + filename);
 
             // 이미지 파일을 static 디렉토리에 저장
             Files.copy(file.getInputStream(), filePath);
 
             // 이미지 아이디
-            Long iId = createUniqueIdBean.exec();
+            Long imageId = createUniqueIdBean.exec();
 
             // 이미지 이름
             String imageName = file.getOriginalFilename();
@@ -59,7 +58,7 @@ public class SaveImagesBean {
             Integer heartCount = 0;
 
             // 이미지 DAO 저장
-            imageDAOs.add(new ImageDAO(iId, imageName, imageUrl, uploadTime, heartCount));
+            imageDAOs.add(new ImageDAO(imageId, imageName, imageUrl, uploadTime, heartCount));
 
         }
 
