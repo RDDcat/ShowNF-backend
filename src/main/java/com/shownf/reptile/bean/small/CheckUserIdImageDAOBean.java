@@ -9,7 +9,7 @@ public class CheckUserIdImageDAOBean {
 
     // 이미지 좋아요 uId 판별
     public boolean exec(ImageHeartDAO imageHeartDAO, RequestImageHeartDeleteDTO requestImageHeartDeleteDTO){
-        if (imageHeartDAO.getUId().equals(requestImageHeartDeleteDTO.getUId()))
+        if (imageHeartDAO.getUserId().equals(requestImageHeartDeleteDTO.getUserId()))
             return true;
         return false;
     }

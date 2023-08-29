@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @Setter
 public class ImageHeartDAO {
     @Id
-    Long iHId;
-    Long iId;
-    String uId;
+    Long imageHeartId;
+    Long imageId;
+    String userId;
     LocalDateTime uploadTime;
 }

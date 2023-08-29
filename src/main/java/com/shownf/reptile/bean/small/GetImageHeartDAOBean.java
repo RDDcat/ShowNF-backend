@@ -16,7 +16,7 @@ public class GetImageHeartDAOBean {
     }
 
     // 이미지 좋아요 아이디로 삭제할 좋아요 찾기
-    public ImageHeartDAO exec(Long iHId){
-        return imageHeartRepositoryJPA.findById(iHId).get();
+    public ImageHeartDAO exec(Long imageHeartId){
+        return imageHeartRepositoryJPA.findById(imageHeartId).get();
     }
 }

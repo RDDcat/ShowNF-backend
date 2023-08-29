@@ -25,15 +25,15 @@ public class ImageHeartController {
     // 이미지 좋아요 저장
     @PostMapping("imageHeart")
     public ResponseEntity<Map<String, Object>> saveImageHeart(@RequestBody RequestImageHeartSaveDTO requestImageHeartSaveDTO){
-        Long iHId = imageHeartService.saveImageHeart(requestImageHeartSaveDTO);
+        Long imageHeartId = imageHeartService.saveImageHeart(requestImageHeartSaveDTO);
 
         // HTTP 상태 변환
-        HttpStatus httpStatus = (iHId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus httpStatus = (imageHeartId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
         // 메시지와 id 값 json 데이터로 반환
         Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("message", (iHId != null) ? "Save Success" : "Save Fail");
-        requestMap.put("iHId", iHId);
+        requestMap.put("message", (imageHeartId != null) ? "Save Success" : "Save Fail");
+        requestMap.put("imageHeartId", imageHeartId);
 
         return ResponseEntity.status(httpStatus).body(requestMap);
     }
@@ -41,15 +41,15 @@ public class ImageHeartController {
     // 이미지 좋아요 삭제
     @DeleteMapping("imageHeart")
     public ResponseEntity<Map<String, Object>> deleteImageHeart(@RequestBody RequestImageHeartDeleteDTO requestImageHeartDeleteDTO){
-        Long iHId = imageHeartService.deleteImageHeart(requestImageHeartDeleteDTO);
+        Long imageHeartId = imageHeartService.deleteImageHeart(requestImageHeartDeleteDTO);
 
         // HTTP 상태 반환
-        HttpStatus httpStatus = (iHId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus httpStatus = (imageHeartId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
         // 메시지와 id 값 json 데이터로 반환
         Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("message", (iHId != null) ? "Delete Success" : "Delete Fail");
-        requestMap.put("iHId", iHId);
+        requestMap.put("message", (imageHeartId != null) ? "Delete Success" : "Delete Fail");
+        requestMap.put("imageHeartId", imageHeartId);
 
         return ResponseEntity.status(httpStatus).body(requestMap);
     }

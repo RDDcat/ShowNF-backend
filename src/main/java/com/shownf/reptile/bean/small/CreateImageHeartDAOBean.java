@@ -10,18 +10,18 @@ import java.time.LocalDateTime;
 public class CreateImageHeartDAOBean {
 
     // 이미지 좋아요 저장시 DAO 생성
-    public ImageHeartDAO exec(Long iHId, RequestImageHeartSaveDTO requestImageHeartSaveDTO){
+    public ImageHeartDAO exec(Long imageHeartId, RequestImageHeartSaveDTO requestImageHeartSaveDTO){
 
         // 이미지 아이디
-        Long iId = requestImageHeartSaveDTO.getIId();
+        Long imageId = requestImageHeartSaveDTO.getImageId();
 
         // 유저 아이디
-        String uId = requestImageHeartSaveDTO.getUId();
+        String userId = requestImageHeartSaveDTO.getUserId();
 
         // 업로드 시간
         LocalDateTime uploadTime = LocalDateTime.now();
 
         // DAO 반환
-        return new ImageHeartDAO(iHId, iId, uId, uploadTime);
+        return new ImageHeartDAO(imageHeartId, imageId, userId, uploadTime);
     }
 }

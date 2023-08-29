@@ -19,11 +19,11 @@ public class UpdateImageHeartCountDAOBean {
     // 이미지 좋아요 갯수 추가
     public ImageDAO exec(ImageHeartDAO imageHeartDAO){
 
-        // iId 가져오기
-        Long iId = imageHeartDAO.getIId();
+        // imageId 가져오기
+        Long imageId = imageHeartDAO.getImageId();
 
-        // iId 로 이미지 찾기
-        ImageDAO imageDAO = imageRepositoryJPA.findById(iId).get();
+        // imageId 로 이미지 찾기
+        ImageDAO imageDAO = imageRepositoryJPA.findById(imageId).get();
 
         // 이미지 좋아요 수 1 증가
         imageDAO.setHeartCount(imageDAO.getHeartCount() + 1);
@@ -33,13 +33,13 @@ public class UpdateImageHeartCountDAOBean {
     }
 
     // 이미지 좋아요 갯수 감소
-    public ImageDAO exec(Long iHId, ImageHeartDAO imageHeartDAO){
+    public ImageDAO exec(Long imageHeartId, ImageHeartDAO imageHeartDAO){
 
-        // iId 가져오기
-        Long iId = imageHeartDAO.getIId();
+        // imageId 가져오기
+        Long imageId = imageHeartDAO.getImageId();
 
-        // iId 로 이미지 찾기
-        ImageDAO imageDAO = imageRepositoryJPA.findById(iId).get();
+        // imageId 로 이미지 찾기
+        ImageDAO imageDAO = imageRepositoryJPA.findById(imageId).get();
 
         // 이미지 좋아요 수 1 증가
         imageDAO.setHeartCount(imageDAO.getHeartCount() - 1);

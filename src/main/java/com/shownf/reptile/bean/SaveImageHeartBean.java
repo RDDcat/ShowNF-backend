@@ -28,11 +28,11 @@ public class SaveImageHeartBean {
     // 이미지 좋아요 저장
     public Long exec(RequestImageHeartSaveDTO requestImageHeartSaveDTO){
 
-        // iHId 생성
-        Long iHId = createUniqueIdBean.exec();
+        // imageHeartId 생성
+        Long imageHeartId = createUniqueIdBean.exec();
 
         // DTO 객체 DAO 변환
-        ImageHeartDAO imageHeartDAO = createImageHeartDAOBean.exec(iHId, requestImageHeartSaveDTO);
+        ImageHeartDAO imageHeartDAO = createImageHeartDAOBean.exec(imageHeartId, requestImageHeartSaveDTO);
 
         // 이미지 좋아요 저장
         saveImageHeartDAOBean.exec(imageHeartDAO);
@@ -43,7 +43,7 @@ public class SaveImageHeartBean {
         // 이미지 저장
         saveImageDAOBean.exec(imageDAO);
 
-        // iHId 반환
-        return iHId;
+        // imageHeartId 반환
+        return imageHeartId;
     }
 }

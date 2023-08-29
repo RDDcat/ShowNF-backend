@@ -31,10 +31,10 @@ public class DeleteImageHeartBean {
     public Long exec(RequestImageHeartDeleteDTO requestImageHeartDeleteDTO){
 
         // 이미지 좋아요 아이디 찾기
-        Long iHId = requestImageHeartDeleteDTO.getIHId();
+        Long imageHeartId = requestImageHeartDeleteDTO.getImageHeartId();
 
         // 아이디로 삭제할 좋아요 찾기
-        ImageHeartDAO imageHeartDAO = getImageHeartDAOBean.exec(iHId);
+        ImageHeartDAO imageHeartDAO = getImageHeartDAOBean.exec(imageHeartId);
 
         // 이미지 좋아요 해당하는 이미지 확인
         if (!checkImageIdImageDAOBean.exec(imageHeartDAO, requestImageHeartDeleteDTO))
@@ -48,12 +48,12 @@ public class DeleteImageHeartBean {
         deleteImageHeartDAOBean.exec(imageHeartDAO);
 
         // 이미지 좋아요 갯수 감소
-        ImageDAO imageDAO = updateImageHeartCountDAOBean.exec(iHId, imageHeartDAO);
+        ImageDAO imageDAO = updateImageHeartCountDAOBean.exec(imageHeartId, imageHeartDAO);
 
         // 이미지 저장
         saveImageDAOBean.exec(imageDAO);
 
-        // iHId 반환
-        return iHId;
+        // imageHeartId 반환
+        return imageHeartId;
     }
 }

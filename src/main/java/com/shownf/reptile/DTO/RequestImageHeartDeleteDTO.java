@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class RequestImageHeartDeleteDTO {
-    Long iHId;
-    Long iId;
-    String uId;
+    Long imageHeartId;
+    Long imageId;
+    String userId;
 }
