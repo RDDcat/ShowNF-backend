@@ -10,13 +10,13 @@ import java.time.LocalDateTime;
 public class CreateCommentDAOBean {
 
     // 댓글 저장시 DAO 생성
-    public CommentDAO exec(Long cId, RequestCommentSaveDTO requestCommentSaveDTO){
+    public CommentDAO exec(Long commentId, RequestCommentSaveDTO requestCommentSaveDTO){
 
         // 게시물 아이디
-        Long pId = requestCommentSaveDTO.getPId();
+        Long postId = requestCommentSaveDTO.getPostId();
 
         // 유저 아이디
-        String uId = requestCommentSaveDTO.getUId();
+        String userId = requestCommentSaveDTO.getUserId();
 
         // 내용
         String content = requestCommentSaveDTO.getContent();
@@ -30,6 +30,6 @@ public class CreateCommentDAOBean {
         // 대댓글 갯수
         Integer replyCount = 0;
 
-        return  new CommentDAO(cId, pId, uId, content, localDateTime, heartCount, replyCount);
+        return  new CommentDAO(commentId, postId, userId, content, localDateTime, heartCount, replyCount);
     }
 }

@@ -21,10 +21,11 @@ public class GetCommentsBean {
         this.createCommentsDTOBean = createCommentsDTOBean;
     }
 
-    public List<RequestCommentsDTO> exec(Long pId){
+    // 댓글 전체 조회
+    public List<RequestCommentsDTO> exec(Long postId){
 
-        // pId 로 게시물에 해당하는 댓글 찾기
-        List<CommentDAO> commentDAOs = getCommentsDAOBean.exec(pId);
+        // postId 로 게시물에 해당하는 댓글 찾기
+        List<CommentDAO> commentDAOs = getCommentsDAOBean.exec(postId);
 
         // DAO 객체 DTO 반환
         return createCommentsDTOBean.exec(commentDAOs);

@@ -25,15 +25,16 @@ public class SaveCommentBean {
         this.savePostDAOBean = savePostDAOBean;
     }
 
+    // 댓글 저장
     public Long exec(RequestCommentSaveDTO requestCommentSaveDTO){
 
-        // pId 존재 확인이 필요할까?
+        // postId 존재 확인이 필요할까?
 
-        // cId 생성
-        long cId = createUniqueIdBean.exec();
+        // commentId 생성
+        long commentId = createUniqueIdBean.exec();
 
         // DTO 객체 DAO 변환
-        CommentDAO commentDAO = createCommentDAOBean.exec(cId, requestCommentSaveDTO);
+        CommentDAO commentDAO = createCommentDAOBean.exec(commentId, requestCommentSaveDTO);
 
         // 댓글 저장
         saveCommentDAOBean.exec(commentDAO);
@@ -45,6 +46,6 @@ public class SaveCommentBean {
         savePostDAOBean.exec(postDAO);
 
         // 댓글 cId 반환
-        return cId;
+        return commentId;
     }
 }

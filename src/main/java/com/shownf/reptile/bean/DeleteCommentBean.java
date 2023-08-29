@@ -27,13 +27,14 @@ public class DeleteCommentBean {
         this.savePostDAOBean = savePostDAOBean;
     }
 
+    // 댓글 삭제
     public Long exec(RequestCommentDeleteDTO requestCommentDeleteDTO){
 
         // 댓글 아이디 찾기
-        Long cId = requestCommentDeleteDTO.getCId();
+        Long commentId = requestCommentDeleteDTO.getCommentId();
 
         // 아이디로 삭제할 댓글 찾기
-        CommentDAO commentDAO =  getCommentDAOBean.exec(cId);
+        CommentDAO commentDAO =  getCommentDAOBean.exec(commentId);
 
         // 댓글에 해당하는 게시물 확인
         if (!checkPostIdPostDAOBean.exec(commentDAO, requestCommentDeleteDTO))
@@ -47,12 +48,12 @@ public class DeleteCommentBean {
         deleteCommentDAOBean.exec(commentDAO);
 
         // 게시물 댓글 갯수 감소
-        PostDAO postDAO = updatePostCommentCountDAOBean.exec(cId, commentDAO);
+        PostDAO postDAO = updatePostCommentCountDAOBean.exec(commentId, commentDAO);
 
         // 게시물 저장
         savePostDAOBean.exec(postDAO);
 
-        // cId 반환
-        return  cId;
+        // commentId 반환
+        return  commentId;
     }
 }

@@ -9,16 +9,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class CheckPostIdPostDAOBean {
 
-    // 좋아요 pId 판별
+    // 좋아요 postId 판별
     public boolean exec(PostHeartDAO postHeartDAO, RequestPostHeartDeleteDTO requestPostHeartDeleteDTO){
         if (postHeartDAO.getPostId().equals(requestPostHeartDeleteDTO.getPostId()))
             return true;
         return false;
     }
 
-    // 댓글 pId 판별
+    // 댓글 postId 판별
     public boolean exec(CommentDAO commentDAO, RequestCommentDeleteDTO requestCommentDeleteDTO){
-        if (commentDAO.getPId().equals(requestCommentDeleteDTO.getPId()))
+        if (commentDAO.getPostId().equals(requestCommentDeleteDTO.getPostId()))
             return true;
         return false;
     }

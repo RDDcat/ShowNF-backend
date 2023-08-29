@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CreateUniqueIdBean {
+
     // 해시로 Unique한 데이터 값 받기
     public long exec(){
         // 아이디 객체 생성

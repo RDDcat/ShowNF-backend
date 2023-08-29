@@ -27,8 +27,8 @@ public class CommentService {
     }
 
     // 댓글 전체 조회
-    public List<RequestCommentsDTO> getComments(Long pId){
-        return getCommentsBean.exec(pId);
+    public List<RequestCommentsDTO> getComments(Long postId){
+        return getCommentsBean.exec(postId);
     }
 
     // 댓글 저장

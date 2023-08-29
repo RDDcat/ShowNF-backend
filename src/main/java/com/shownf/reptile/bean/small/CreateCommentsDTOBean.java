@@ -19,9 +19,9 @@ public class CreateCommentsDTOBean {
         for (CommentDAO commentDAO: commentDAOs) {
             RequestCommentsDTO requestCommentsDTO = new RequestCommentsDTO();
 
-            requestCommentsDTO.setCId(commentDAO.getCId());
-            requestCommentsDTO.setPId(commentDAO.getPId());
-            requestCommentsDTO.setUId(commentDAO.getUId());
+            requestCommentsDTO.setCommentId(commentDAO.getCommentId());
+            requestCommentsDTO.setPostId(commentDAO.getPostId());
+            requestCommentsDTO.setUserId(commentDAO.getUserId());
             requestCommentsDTO.setContent(commentDAO.getContent());
             requestCommentsDTO.setUploadTime(commentDAO.getUploadTime());
             requestCommentsDTO.setHeartCount(commentDAO.getHeartCount());

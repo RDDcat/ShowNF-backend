@@ -19,7 +19,7 @@ public class GetCommentsDAOBean {
     }
 
     // 게시물에 대한 댓글 객체들 찾기
-    public List<CommentDAO> exec(Long pId){
-        return new ArrayList<>(commentRepositoryJPA.findBypId(pId));
+    public List<CommentDAO> exec(Long postId){
+        return new ArrayList<>(commentRepositoryJPA.findByPostId(postId));
     }
 }

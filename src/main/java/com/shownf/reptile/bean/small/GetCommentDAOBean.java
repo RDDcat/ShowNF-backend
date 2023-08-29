@@ -15,7 +15,8 @@ public class GetCommentDAOBean {
         this.commentRepositoryJPA = commentRepositoryJPA;
     }
 
-    public CommentDAO exec(Long cId){
-        return commentRepositoryJPA.findById(cId).get();
+    // 아디로 삭제할 댓글 찾기
+    public CommentDAO exec(Long commentId){
+        return commentRepositoryJPA.findById(commentId).get();
     }
 }

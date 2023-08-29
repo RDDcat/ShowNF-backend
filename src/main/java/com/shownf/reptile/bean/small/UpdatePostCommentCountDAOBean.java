@@ -19,11 +19,11 @@ public class UpdatePostCommentCountDAOBean {
     // 게시물 댓글 갯수 추가
     public PostDAO exec(CommentDAO commentDAO){
 
-        // pId 가져오기
-        Long pId = commentDAO.getPId();
+        // postId 가져오기
+        Long postId = commentDAO.getPostId();
 
-        // pId 로 게시물 찾기
-        PostDAO postDAO = postRepositoryJPA.findById(pId).get();
+        // postId 로 게시물 찾기
+        PostDAO postDAO = postRepositoryJPA.findById(postId).get();
 
         // 게시물 댓글 수 1 증가
         postDAO.setCommentCount(postDAO.getCommentCount() + 1);
@@ -33,13 +33,13 @@ public class UpdatePostCommentCountDAOBean {
     }
 
     // 게시물 댓글 갯수 감소
-    public PostDAO exec(Long cId, CommentDAO commentDAO){
+    public PostDAO exec(Long commentId, CommentDAO commentDAO){
 
-        // pId 가져오기
-        Long pId = commentDAO.getPId();
+        // postId 가져오기
+        Long postId = commentDAO.getPostId();
 
-        // pId 로 게시물 찾기
-        PostDAO postDAO = postRepositoryJPA.findById(pId).get();
+        // postId 로 게시물 찾기
+        PostDAO postDAO = postRepositoryJPA.findById(postId).get();
 
         // 게시물 댓글 수 1 감소
         postDAO.setCommentCount(postDAO.getCommentCount() - 1);

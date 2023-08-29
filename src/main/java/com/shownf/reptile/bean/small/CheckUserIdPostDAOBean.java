@@ -16,7 +16,7 @@ public class CheckUserIdPostDAOBean {
         return false;
     }*/
 
-    // 좋아요 uId 판별
+    // 좋아요 userId 판별
     public boolean exec(PostHeartDAO postHeartDAO, RequestPostHeartDeleteDTO requestPostHeartDeleteDTO){
         if (postHeartDAO.getUserId().equals(requestPostHeartDeleteDTO.getUserId()))
             return true;
@@ -25,7 +25,7 @@ public class CheckUserIdPostDAOBean {
 
     // 댓글 uId 판별
     public boolean exec(CommentDAO commentDAO, RequestCommentDeleteDTO requestCommentDeleteDTO){
-        if (commentDAO.getUId().equals(requestCommentDeleteDTO.getUId()))
+        if (commentDAO.getUserId().equals(requestCommentDeleteDTO.getUserId()))
             return true;
         return false;
     }

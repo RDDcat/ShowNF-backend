@@ -63,19 +63,19 @@ public class InitDB {
             commentRepositoryJPA.save(commentDAO3);
             commentRepositoryJPA.save(commentDAO4);
 
-            CommentHeartDAO commentHeartDAO1 = new CommentHeartDAO(21L, commentDAO3.getCId(), "에어팟", LocalDateTime.now());
-            CommentHeartDAO commentHeartDAO2 = new CommentHeartDAO(22L, commentDAO4.getCId(), "버즈", LocalDateTime.now());
-            CommentHeartDAO commentHeartDAO3 = new CommentHeartDAO(23L, commentDAO4.getCId(), "소니", LocalDateTime.now());
-            CommentHeartDAO commentHeartDAO4 = new CommentHeartDAO(24L, commentDAO4.getCId(), "엘지", LocalDateTime.now());
+            CommentHeartDAO commentHeartDAO1 = new CommentHeartDAO(21L, commentDAO3.getCommentId(), "에어팟", LocalDateTime.now());
+            CommentHeartDAO commentHeartDAO2 = new CommentHeartDAO(22L, commentDAO4.getCommentId(), "버즈", LocalDateTime.now());
+            CommentHeartDAO commentHeartDAO3 = new CommentHeartDAO(23L, commentDAO4.getCommentId(), "소니", LocalDateTime.now());
+            CommentHeartDAO commentHeartDAO4 = new CommentHeartDAO(24L, commentDAO4.getCommentId(), "엘지", LocalDateTime.now());
 
             commentHeartRepositoryJPA.save(commentHeartDAO1);
             commentHeartRepositoryJPA.save(commentHeartDAO2);
             commentHeartRepositoryJPA.save(commentHeartDAO3);
             commentHeartRepositoryJPA.save(commentHeartDAO4);
 
-            ReplyDAO replyDAO1 = new ReplyDAO(0L, commentDAO3.getCId(), "토레타", "테스트내용0 입니당", LocalDateTime.now(), 1);
-            ReplyDAO replyDAO2 = new ReplyDAO(1L, commentDAO3.getCId(), "파워에이드", "테스트내용1 입니당", LocalDateTime.now(), 2);
-            ReplyDAO replyDAO3 = new ReplyDAO(2L, commentDAO4.getCId(), "사이다", "테스트내용1 입니당", LocalDateTime.now(), 0);
+            ReplyDAO replyDAO1 = new ReplyDAO(0L, commentDAO3.getCommentId(), "토레타", "테스트내용0 입니당", LocalDateTime.now(), 1);
+            ReplyDAO replyDAO2 = new ReplyDAO(1L, commentDAO3.getCommentId(), "파워에이드", "테스트내용1 입니당", LocalDateTime.now(), 2);
+            ReplyDAO replyDAO3 = new ReplyDAO(2L, commentDAO4.getCommentId(), "사이다", "테스트내용1 입니당", LocalDateTime.now(), 0);
 
             replyRepositoryJPA.save(replyDAO1);
             replyRepositoryJPA.save(replyDAO2);

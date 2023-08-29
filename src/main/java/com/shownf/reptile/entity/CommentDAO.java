@@ -16,9 +16,9 @@ import java.time.LocalDateTime;
 @Setter
 public class CommentDAO {
     @Id
-    Long cId;
-    Long pId;
-    String uId;
+    Long commentId;
+    Long postId;
+    String userId;
     String content;
     LocalDateTime uploadTime;
     Integer heartCount;

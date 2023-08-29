@@ -22,25 +22,25 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    // 이거 comment/pId 이게 좀 어색하네;;
+    // 이거 comment/postId 이게 좀 어색하네;;
     // 댓글 전체 조회
-    @GetMapping("comment/{pId}")
-    public List<RequestCommentsDTO> getComments(@PathVariable Long pId){
-        return commentService.getComments(pId);
+    @GetMapping("comment/{postId}")
+    public List<RequestCommentsDTO> getComments(@PathVariable Long postId){
+        return commentService.getComments(postId);
     }
 
     // 댓글 저장
     @PostMapping("comment")
     public ResponseEntity<Map<String, Object>> saveComment(@RequestBody RequestCommentSaveDTO requestCommentSaveDTO){
-        Long cId = commentService.saveComment(requestCommentSaveDTO);
+        Long commentId = commentService.saveComment(requestCommentSaveDTO);
 
         // HTTP 상태 변환
-        HttpStatus httpStatus = (cId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus httpStatus = (commentId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
         // 메시지와 id 값 json 데이터로 반환
         Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("message", (cId != null) ? "Save Success" : "Save Fail");
-        requestMap.put("cId", cId);
+        requestMap.put("message", (commentId != null) ? "Save Success" : "Save Fail");
+        requestMap.put("commentId", commentId);
 
         return ResponseEntity.status(httpStatus).body(requestMap);
     }
@@ -48,15 +48,15 @@ public class CommentController {
     // 댓글 삭제
     @DeleteMapping("comment")
     public ResponseEntity<Map<String, Object>> deleteComment(@RequestBody RequestCommentDeleteDTO requestCommentDeleteDTO){
-        Long cId = commentService.deleteComment(requestCommentDeleteDTO);
+        Long commentId = commentService.deleteComment(requestCommentDeleteDTO);
 
         // HTTP 상태 반환
-        HttpStatus httpStatus = (cId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus httpStatus = (commentId != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
         // 메시지와 id 값 json 데이터로 반환
         Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("message", (cId != null) ? "Delete Success" : "Delete Fail");
-        requestMap.put("cId", cId);
+        requestMap.put("message", (commentId != null) ? "Delete Success" : "Delete Fail");
+        requestMap.put("commentId", commentId);
 
         return ResponseEntity.status(httpStatus).body(requestMap);
     }
