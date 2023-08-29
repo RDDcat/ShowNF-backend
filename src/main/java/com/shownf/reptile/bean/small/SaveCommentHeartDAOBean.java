@@ -14,6 +14,7 @@ public class SaveCommentHeartDAOBean {
         this.commentHeartRepositoryJPA = commentHeartRepositoryJPA;
     }
 
+    // 댓글 좋아요 저장
     public void exec(CommentHeartDAO commentHeartDAO){
         commentHeartRepositoryJPA.save(commentHeartDAO);
     }

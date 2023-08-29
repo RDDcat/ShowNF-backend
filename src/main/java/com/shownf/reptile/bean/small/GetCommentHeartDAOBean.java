@@ -16,7 +16,7 @@ public class GetCommentHeartDAOBean {
     }
 
     // 댓글 좋아요 아이디로 삭제할 댓글 찾기
-    public CommentHeartDAO exec(Long cHId){
-        return commentHeartRepositoryJPA.findById(cHId).get();
+    public CommentHeartDAO exec(Long commentHeartId){
+        return commentHeartRepositoryJPA.findById(commentHeartId).get();
     }
 }

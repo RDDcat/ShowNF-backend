@@ -11,7 +11,7 @@ public class CheckUserIdCommentDAOBean {
 
     // 댓글 좋아요 userId 판별
     public boolean exec(CommentHeartDAO commentHeartDAO, RequestCommentHeartDeleteDTO requestCommentHeartDeleteDTO){
-        if (commentHeartDAO.getUId().equals(requestCommentHeartDeleteDTO.getUId()))
+        if (commentHeartDAO.getUserId().equals(requestCommentHeartDeleteDTO.getUserId()))
             return true;
         return false;
     }

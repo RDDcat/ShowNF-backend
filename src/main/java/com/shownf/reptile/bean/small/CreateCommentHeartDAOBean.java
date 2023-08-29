@@ -10,18 +10,18 @@ import java.time.LocalDateTime;
 public class CreateCommentHeartDAOBean {
 
     // 댓글 좋아요 저장시 DAO 생성
-    public CommentHeartDAO exec(Long cHid, RequestCommentHeartSaveDTO requestCommentHeartSaveDTO){
+    public CommentHeartDAO exec(Long commentHeartId, RequestCommentHeartSaveDTO requestCommentHeartSaveDTO){
 
         // 댓글 아이디
-        Long cId = requestCommentHeartSaveDTO.getCId();
+        Long commentId = requestCommentHeartSaveDTO.getCommentId();
 
         // 유저 아이디
-        String uId = requestCommentHeartSaveDTO.getUId();
+        String userId = requestCommentHeartSaveDTO.getUserId();
 
         // 업로드 시간
         LocalDateTime uploadTime = LocalDateTime.now();
 
         // DAO 반환
-        return new CommentHeartDAO(cHid, cId, uId, uploadTime);
+        return new CommentHeartDAO(commentHeartId, commentId, userId, uploadTime);
     }
 }

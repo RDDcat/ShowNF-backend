@@ -25,13 +25,14 @@ public class SaveCommentHeartBean {
         this.saveCommentDAOBean = saveCommentDAOBean;
     }
 
+    // 댓글 좋아요 저장
     public Long exec(RequestCommentHeartSaveDTO requestCommentHeartSaveDTO) {
 
-        // cHid 생성
-        Long cHId = createUniqueIdBean.exec();
+        // commentHeartId 생성
+        Long commentHeartId = createUniqueIdBean.exec();
 
         // DTO 객체 DAO 변환
-        CommentHeartDAO commentHeartDAO = createCommentHeartDAOBean.exec(cHId, requestCommentHeartSaveDTO);
+        CommentHeartDAO commentHeartDAO = createCommentHeartDAOBean.exec(commentHeartId, requestCommentHeartSaveDTO);
 
         // 댓글 좋아요 저장
         saveCommentHeartDAOBean.exec(commentHeartDAO);
@@ -42,7 +43,7 @@ public class SaveCommentHeartBean {
         // 댓글 저장
         saveCommentDAOBean.exec(commentDAO);
 
-        // cHid 반환
-        return cHId;
+        // commentHeartId 반환
+        return commentHeartId;
     }
 }
