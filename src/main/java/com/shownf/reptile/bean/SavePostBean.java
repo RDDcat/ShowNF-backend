@@ -2,6 +2,7 @@ package com.shownf.reptile.bean;
 
 import com.shownf.reptile.DTO.RequestPostSaveDTO;
 import com.shownf.reptile.bean.small.*;
+import com.shownf.reptile.entity.ImageDAO;
 import com.shownf.reptile.entity.PostContentDAO;
 import com.shownf.reptile.entity.PostDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +16,18 @@ public class SavePostBean {
     CreateUniqueIdBean createUniqueIdBean;
     CreatePostContentsDAOBean createPostContentsDAOBean;
     SavePostContentsDAOBean savePostContentsDAOBean;
+    CreateImagesDAOBean createImagesDAOBean;
+    SaveImagesDAOBean saveImagesDAOBean;
     CreatePostDAOBean createPostDAOBean;
     SavePostDAOBean savePostDAOBean;
 
     @Autowired
-    public SavePostBean(CreateUniqueIdBean createUniqueIdBean, CreatePostContentsDAOBean createPostContentsDAOBean, SavePostContentsDAOBean savePostContentsDAOBean, CreatePostDAOBean createPostDAOBean, SavePostDAOBean savePostDAOBean) {
+    public SavePostBean(CreateUniqueIdBean createUniqueIdBean, CreatePostContentsDAOBean createPostContentsDAOBean, SavePostContentsDAOBean savePostContentsDAOBean, CreateImagesDAOBean createImagesDAOBean, SaveImagesDAOBean saveImagesDAOBean, CreatePostDAOBean createPostDAOBean, SavePostDAOBean savePostDAOBean) {
         this.createUniqueIdBean = createUniqueIdBean;
         this.createPostContentsDAOBean = createPostContentsDAOBean;
         this.savePostContentsDAOBean = savePostContentsDAOBean;
+        this.createImagesDAOBean = createImagesDAOBean;
+        this.saveImagesDAOBean = saveImagesDAOBean;
         this.createPostDAOBean = createPostDAOBean;
         this.savePostDAOBean = savePostDAOBean;
     }
@@ -36,6 +41,12 @@ public class SavePostBean {
 
         // postContent 저장
         savePostContentsDAOBean.exec(postContentDAOs);
+
+        // 이미지 DAO 변환
+        List<ImageDAO> imageDAOs = createImagesDAOBean.exec(requestPostSaveDTO);
+
+        // 이미지 저장
+        saveImagesDAOBean.exec(imageDAOs);
 
         // DTO 객체 DAO 변환
         PostDAO postDAO = createPostDAOBean.exec(postId, requestPostSaveDTO);
