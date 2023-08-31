@@ -2,10 +2,13 @@ package com.shownf.reptile.DTO;
 
 import lombok.Data;
 
+import java.util.List;
+import java.util.Map;
+
 @Data
 public class RequestPostSaveDTO {
     String userId;
     String title;
-    String content;
+    private List<Map<String, String>> content;
     String category;
 }
