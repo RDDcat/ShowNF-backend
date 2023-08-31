@@ -19,7 +19,7 @@ public class CreatePostDAOBean {
         String title = requestPostSaveDTO.getTitle();
 
         // 내용
-        String content = requestPostSaveDTO.getContent();
+        String content = requestPostSaveDTO.getContent().toString();
 
         // 카테고리
         String category = requestPostSaveDTO.getCategory();
