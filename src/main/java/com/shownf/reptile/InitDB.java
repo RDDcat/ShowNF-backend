@@ -37,10 +37,24 @@ public class InitDB {
             PostDAO postDAO1 = new PostDAO(0, "코딩좀비", "테스트 제목1", "[{imageUrl=http://localhost:8080/test1.jpg, content=content1}, {imageUrl=http://localhost:8080/test2.jpg, content=content2}]", "도마뱀", LocalDateTime.now(), 3, 1, 0);
             PostDAO postDAO2 = new PostDAO(1, "괴물", "테스트 제목2", "[{imageUrl=http://localhost:8080/test3.jpg, content=content3}, {imageUrl=http://localhost:8080/test4.jpg, content=content4}]", "뱀", LocalDateTime.now(), 2, 6, 0);
             PostDAO postDAO3 = new PostDAO(2, "카페인중독", "테스트 제목3", "[{imageUrl=http://localhost:8080/test5.jpg, content=content5}, {imageUrl=http://localhost:8080/test6.jpg, content=content6}]", "상어", LocalDateTime.now(), 0, 0, 0);
+            PostDAO postDAO4 = new PostDAO(3, "코딩좀비", "테스트 제목4", "[{imageUrl=http://localhost:8080/test7.jpg, content=content7}, {imageUrl=http://localhost:8080/test8.jpg, content=content8}]", "도마뱀", LocalDateTime.now(), 4, 0, 0);
+            PostDAO postDAO5 = new PostDAO(4, "괴물", "테스트 제목5", "[{imageUrl=http://localhost:8080/test9.jpg, content=content9}, {imageUrl=http://localhost:8080/test10.jpg, content=content10}]", "뱀", LocalDateTime.now(), 6, 0, 0);
+            PostDAO postDAO6 = new PostDAO(5, "카페인중독", "테스트 제목6", "[{imageUrl=http://localhost:8080/test11.jpg, content=content11}, {imageUrl=http://localhost:8080/test12.jpg, content=content12}]", "상어", LocalDateTime.now(), 2, 0, 0);
+            PostDAO postDAO7 = new PostDAO(6, "괴물", "테스트 제목7", "[{imageUrl=http://localhost:8080/test13.jpg, content=content13}, {imageUrl=http://localhost:8080/test14.jpg, content=content14}]", "도마뱀", LocalDateTime.now(), 3, 0, 0);
+            PostDAO postDAO8 = new PostDAO(7, "코딩좀비", "테스트 제목8", "[{imageUrl=http://localhost:8080/test15.jpg, content=content15}, {imageUrl=http://localhost:8080/test16.jpg, content=content16}]", "뱀", LocalDateTime.now(), 6, 0, 0);
+            PostDAO postDAO9 = new PostDAO(8, "카페인중독", "테스트 제목9", "[{imageUrl=http://localhost:8080/test17.jpg, content=content17}, {imageUrl=http://localhost:8080/test18.jpg, content=content18}]", "상어", LocalDateTime.now(), 9, 0, 0);
+            PostDAO postDAO10 = new PostDAO(9, "괴물", "테스트 제목10", "[{imageUrl=http://localhost:8080/test19.jpg, content=content19}, {imageUrl=http://localhost:8080/test20.jpg, content=content20}]", "도마뱀", LocalDateTime.now(), 7, 0, 0);
 
             postRepositoryJPA.save(postDAO1);
             postRepositoryJPA.save(postDAO2);
             postRepositoryJPA.save(postDAO3);
+            postRepositoryJPA.save(postDAO4);
+            postRepositoryJPA.save(postDAO5);
+            postRepositoryJPA.save(postDAO6);
+            postRepositoryJPA.save(postDAO7);
+            postRepositoryJPA.save(postDAO8);
+            postRepositoryJPA.save(postDAO9);
+            postRepositoryJPA.save(postDAO10);
 
             PostContentDAO postContentDAO1 = new PostContentDAO(100L, 0L, "http://localhost:8080/test1.jpg", "content1");
             PostContentDAO postContentDAO2 = new PostContentDAO(101L, 0L, "http://localhost:8080/test2.jpg", "content2");
