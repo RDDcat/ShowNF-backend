@@ -24,6 +24,7 @@ public class InitDB {
     static class InitService{
 
         private final PostRepositoryJPA postRepositoryJPA;
+        private final PostContentRepositoryJPA postContentRepositoryJPA;
         private final PostHeartRepositoryJPA postHeartRepositoryJPA;
         private final CommentRepositoryJPA commentRepositoryJPA;
         private final CommentHeartRepositoryJPA commentHeartRepositoryJPA;
@@ -33,13 +34,27 @@ public class InitDB {
         private final ImageHeartRepositoryJPA imageHeartRepositoryJPA;
 
         public void dbInit(){
-            PostDAO postDAO1 = new PostDAO(0, "코딩좀비", "테스트 제목1", "테스트 내용1입니당", "도마뱀", LocalDateTime.now(), 3, 1, 0);
-            PostDAO postDAO2 = new PostDAO(1, "괴물", "테스트 제목2", "테스트 내용2입니당", "뱀", LocalDateTime.now(), 2, 6, 0);
-            PostDAO postDAO3 = new PostDAO(2, "카페인중독", "테스트 제목3", "테스트 내용3입니당", "상어", LocalDateTime.now(), 0, 0, 0);
+            PostDAO postDAO1 = new PostDAO(0, "코딩좀비", "테스트 제목1", "[{imageUrl=http://localhost:8080/test1.jpg, content=content1}, {imageUrl=http://localhost:8080/test2.jpg, content=content2}]", "도마뱀", LocalDateTime.now(), 3, 1, 0);
+            PostDAO postDAO2 = new PostDAO(1, "괴물", "테스트 제목2", "[{imageUrl=http://localhost:8080/test3.jpg, content=content3}, {imageUrl=http://localhost:8080/test4.jpg, content=content4}]", "뱀", LocalDateTime.now(), 2, 6, 0);
+            PostDAO postDAO3 = new PostDAO(2, "카페인중독", "테스트 제목3", "[{imageUrl=http://localhost:8080/test5.jpg, content=content5}, {imageUrl=http://localhost:8080/test6.jpg, content=content6}]", "상어", LocalDateTime.now(), 0, 0, 0);
 
             postRepositoryJPA.save(postDAO1);
             postRepositoryJPA.save(postDAO2);
             postRepositoryJPA.save(postDAO3);
+
+            PostContentDAO postContentDAO1 = new PostContentDAO(100L, 0L, "http://localhost:8080/test1.jpg", "content1");
+            PostContentDAO postContentDAO2 = new PostContentDAO(101L, 0L, "http://localhost:8080/test2.jpg", "content2");
+            PostContentDAO postContentDAO3 = new PostContentDAO(102L, 1L, "http://localhost:8080/test3.jpg", "content3");
+            PostContentDAO postContentDAO4 = new PostContentDAO(103L, 1L, "http://localhost:8080/test4.jpg", "content4");
+            PostContentDAO postContentDAO5 = new PostContentDAO(104L, 2L, "http://localhost:8080/test5.jpg", "content5");
+            PostContentDAO postContentDAO6 = new PostContentDAO(105L, 2L, "http://localhost:8080/test6.jpg", "content6");
+
+            postContentRepositoryJPA.save(postContentDAO1);
+            postContentRepositoryJPA.save(postContentDAO2);
+            postContentRepositoryJPA.save(postContentDAO3);
+            postContentRepositoryJPA.save(postContentDAO4);
+            postContentRepositoryJPA.save(postContentDAO5);
+            postContentRepositoryJPA.save(postContentDAO6);
 
             PostHeartDAO postHeartDAO1 = new PostHeartDAO(11L, postDAO1.getPostId(), "아이폰", LocalDateTime.now());
             PostHeartDAO postHeartDAO2 = new PostHeartDAO(12L, postDAO1.getPostId(), "갤럭시", LocalDateTime.now());
