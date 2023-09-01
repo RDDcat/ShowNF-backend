@@ -1,54 +1,33 @@
 package com.shownf.reptile.bean;
 
 import com.shownf.reptile.DTO.RequestPostDTO;
+import com.shownf.reptile.bean.small.CreatePostsDTOBean;
+import com.shownf.reptile.bean.small.GetPostsDAOBean;
 import com.shownf.reptile.entity.PostDAO;
-import com.shownf.reptile.repository.PostRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
-public class GetHotPostsBean {
+public class GetPostsBean {
 
-    PostRepositoryJPA postRepositoryJPA;
+    GetPostsDAOBean getPostsDAOBean;
+    CreatePostsDTOBean createPostsDTOBean;
 
     @Autowired
-    public GetHotPostsBean(PostRepositoryJPA postRepositoryJPA) {
-        this.postRepositoryJPA = postRepositoryJPA;
+    public GetPostsBean(GetPostsDAOBean getPostsDAOBean, CreatePostsDTOBean createPostsDTOBean) {
+        this.getPostsDAOBean = getPostsDAOBean;
+        this.createPostsDTOBean = createPostsDTOBean;
     }
 
-    // Hot 게시물 조회
+    // 게시물 Page 형태로 전체 조회
     public Page<RequestPostDTO> exec(Pageable pageable){
-        Page<PostDAO> postDAOs = postRepositoryJPA.findAll(pageable);
 
-        List<RequestPostDTO> requestPostDTOs = new ArrayList<>();
+        // 게시물 전체 찾기
+        Page<PostDAO> postDAOs = getPostsDAOBean.exec(pageable);
 
-        // DTO 객체에 게시물 정보 넘기기
-        for (PostDAO postDAO: postDAOs) {
-            RequestPostDTO requestPostDTO = new RequestPostDTO();
-
-            requestPostDTO.setPostId(postDAO.getPostId());
-            requestPostDTO.setUserId(postDAO.getUserId());
-            requestPostDTO.setTitle(postDAO.getTitle());
-            requestPostDTO.setContent(postDAO.getContent());
-            requestPostDTO.setCategory(postDAO.getCategory());
-            requestPostDTO.setUploadTime(postDAO.getUploadTime());
-
-            if (postDAO.getHeartCount() <= 0)
-                continue;
-
-            requestPostDTO.setHeartCount(postDAO.getHeartCount());
-            requestPostDTO.setCommentCount(postDAO.getCommentCount());
-            requestPostDTO.setViewCount(postDAO.getViewCount());
-
-            requestPostDTOs.add(requestPostDTO);
-        }
-
-        return new PageImpl<>(requestPostDTOs, pageable, postDAOs.getTotalElements());
+        // DAO 객체 DTO 반환
+        return createPostsDTOBean.exec(pageable, postDAOs);
     }
 }
