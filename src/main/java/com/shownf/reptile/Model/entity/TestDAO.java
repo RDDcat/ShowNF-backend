@@ -1,4 +1,4 @@
-package com.shownf.reptile.entity;
+package com.shownf.reptile.Model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,10 +1,10 @@
 package com.shownf.reptile.bean;
 
-import com.shownf.reptile.DTO.RequestReplyDeleteDTO;
+import com.shownf.reptile.Model.DTO.RequestReplyDeleteDTO;
 import com.shownf.reptile.bean.small.*;
-import com.shownf.reptile.entity.CommentDAO;
-import com.shownf.reptile.entity.PostDAO;
-import com.shownf.reptile.entity.ReplyDAO;
+import com.shownf.reptile.Model.entity.CommentDAO;
+import com.shownf.reptile.Model.entity.PostDAO;
+import com.shownf.reptile.Model.entity.ReplyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

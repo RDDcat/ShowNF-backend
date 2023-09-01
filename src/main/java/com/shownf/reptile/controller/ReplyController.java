@@ -1,8 +1,8 @@
 package com.shownf.reptile.controller;
 
-import com.shownf.reptile.DTO.RequestReplyDeleteDTO;
-import com.shownf.reptile.DTO.RequestReplySaveDTO;
-import com.shownf.reptile.DTO.RequestReplysDTO;
+import com.shownf.reptile.Model.DTO.RequestReplyDeleteDTO;
+import com.shownf.reptile.Model.DTO.RequestReplySaveDTO;
+import com.shownf.reptile.Model.DTO.RequestReplysDTO;
 import com.shownf.reptile.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

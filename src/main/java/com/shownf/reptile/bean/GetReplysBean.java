@@ -1,9 +1,9 @@
 package com.shownf.reptile.bean;
 
-import com.shownf.reptile.DTO.RequestReplysDTO;
+import com.shownf.reptile.Model.DTO.RequestReplysDTO;
 import com.shownf.reptile.bean.small.CreateReplysDTOBean;
 import com.shownf.reptile.bean.small.GetReplysDAOBean;
-import com.shownf.reptile.entity.ReplyDAO;
+import com.shownf.reptile.Model.entity.ReplyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

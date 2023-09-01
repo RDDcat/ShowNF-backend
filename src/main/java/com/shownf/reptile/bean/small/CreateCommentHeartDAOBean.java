@@ -1,7 +1,7 @@
 package com.shownf.reptile.bean.small;
 
-import com.shownf.reptile.DTO.RequestCommentHeartSaveDTO;
-import com.shownf.reptile.entity.CommentHeartDAO;
+import com.shownf.reptile.Model.DTO.RequestCommentHeartSaveDTO;
+import com.shownf.reptile.Model.entity.CommentHeartDAO;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

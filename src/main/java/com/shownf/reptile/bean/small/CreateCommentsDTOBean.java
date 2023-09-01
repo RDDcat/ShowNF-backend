@@ -1,7 +1,7 @@
 package com.shownf.reptile.bean.small;
 
-import com.shownf.reptile.DTO.RequestCommentsDTO;
-import com.shownf.reptile.entity.CommentDAO;
+import com.shownf.reptile.Model.DTO.RequestCommentsDTO;
+import com.shownf.reptile.Model.entity.CommentDAO;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

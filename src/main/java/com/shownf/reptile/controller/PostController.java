@@ -1,7 +1,7 @@
 package com.shownf.reptile.controller;
 
-import com.shownf.reptile.DTO.RequestPostDTO;
-import com.shownf.reptile.DTO.RequestPostSaveDTO;
+import com.shownf.reptile.Model.DTO.RequestPostDTO;
+import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
 import com.shownf.reptile.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

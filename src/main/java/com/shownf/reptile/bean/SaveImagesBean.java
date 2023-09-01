@@ -2,7 +2,7 @@ package com.shownf.reptile.bean;
 
 import com.shownf.reptile.bean.small.CreateImagesDAOBean;
 import com.shownf.reptile.bean.small.SaveImagesDAOBean;
-import com.shownf.reptile.entity.ImageDAO;
+import com.shownf.reptile.Model.entity.ImageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,8 +1,8 @@
 package com.shownf.reptile.service;
 
-import com.shownf.reptile.DTO.RequestCommentDeleteDTO;
-import com.shownf.reptile.DTO.RequestCommentSaveDTO;
-import com.shownf.reptile.DTO.RequestCommentsDTO;
+import com.shownf.reptile.Model.DTO.RequestCommentDeleteDTO;
+import com.shownf.reptile.Model.DTO.RequestCommentSaveDTO;
+import com.shownf.reptile.Model.DTO.RequestCommentsDTO;
 import com.shownf.reptile.bean.DeleteCommentBean;
 import com.shownf.reptile.bean.GetCommentsBean;
 import com.shownf.reptile.bean.SaveCommentBean;

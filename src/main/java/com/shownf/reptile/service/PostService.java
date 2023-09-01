@@ -1,7 +1,7 @@
 package com.shownf.reptile.service;
 
-import com.shownf.reptile.DTO.RequestPostDTO;
-import com.shownf.reptile.DTO.RequestPostSaveDTO;
+import com.shownf.reptile.Model.DTO.RequestPostDTO;
+import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
 import com.shownf.reptile.bean.GetPostsBean;
 import com.shownf.reptile.bean.GetPostBean;
 import com.shownf.reptile.bean.SavePostBean;

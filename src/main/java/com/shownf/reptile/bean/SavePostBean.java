@@ -1,10 +1,10 @@
 package com.shownf.reptile.bean;
 
-import com.shownf.reptile.DTO.RequestPostSaveDTO;
+import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
 import com.shownf.reptile.bean.small.*;
-import com.shownf.reptile.entity.ImageDAO;
-import com.shownf.reptile.entity.PostContentDAO;
-import com.shownf.reptile.entity.PostDAO;
+import com.shownf.reptile.Model.entity.ImageDAO;
+import com.shownf.reptile.Model.entity.PostContentDAO;
+import com.shownf.reptile.Model.entity.PostDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

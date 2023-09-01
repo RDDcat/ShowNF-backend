@@ -1,9 +1,9 @@
 package com.shownf.reptile.bean;
 
-import com.shownf.reptile.DTO.RequestCommentsDTO;
+import com.shownf.reptile.Model.DTO.RequestCommentsDTO;
 import com.shownf.reptile.bean.small.CreateCommentsDTOBean;
 import com.shownf.reptile.bean.small.GetCommentsDAOBean;
-import com.shownf.reptile.entity.CommentDAO;
+import com.shownf.reptile.Model.entity.CommentDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

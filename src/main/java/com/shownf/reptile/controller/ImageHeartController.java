@@ -1,7 +1,7 @@
 package com.shownf.reptile.controller;
 
-import com.shownf.reptile.DTO.RequestImageHeartDeleteDTO;
-import com.shownf.reptile.DTO.RequestImageHeartSaveDTO;
+import com.shownf.reptile.Model.DTO.RequestImageHeartDeleteDTO;
+import com.shownf.reptile.Model.DTO.RequestImageHeartSaveDTO;
 import com.shownf.reptile.service.ImageHeartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

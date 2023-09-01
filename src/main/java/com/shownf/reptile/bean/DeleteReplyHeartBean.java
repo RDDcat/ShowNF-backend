@@ -1,9 +1,9 @@
 package com.shownf.reptile.bean;
 
-import com.shownf.reptile.DTO.RequestReplyHeartDeleteDTO;
+import com.shownf.reptile.Model.DTO.RequestReplyHeartDeleteDTO;
 import com.shownf.reptile.bean.small.*;
-import com.shownf.reptile.entity.ReplyDAO;
-import com.shownf.reptile.entity.ReplyHeartDAO;
+import com.shownf.reptile.Model.entity.ReplyDAO;
+import com.shownf.reptile.Model.entity.ReplyHeartDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.shownf.reptile.repository;
 
-import com.shownf.reptile.entity.CommentDAO;
+import com.shownf.reptile.Model.entity.CommentDAO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

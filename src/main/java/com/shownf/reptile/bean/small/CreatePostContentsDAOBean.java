@@ -1,7 +1,7 @@
 package com.shownf.reptile.bean.small;
 
-import com.shownf.reptile.DTO.RequestPostSaveDTO;
-import com.shownf.reptile.entity.PostContentDAO;
+import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
+import com.shownf.reptile.Model.entity.PostContentDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

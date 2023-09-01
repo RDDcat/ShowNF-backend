@@ -1,7 +1,7 @@
 package com.shownf.reptile.bean.small;
 
-import com.shownf.reptile.DTO.RequestReplysDTO;
-import com.shownf.reptile.entity.ReplyDAO;
+import com.shownf.reptile.Model.DTO.RequestReplysDTO;
+import com.shownf.reptile.Model.entity.ReplyDAO;
 import lombok.Builder;
 import org.springframework.stereotype.Component;
 

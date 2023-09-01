@@ -1,6 +1,6 @@
 package com.shownf.reptile.bean.small;
 
-import com.shownf.reptile.entity.ImageDAO;
+import com.shownf.reptile.Model.entity.ImageDAO;
 import com.shownf.reptile.repository.ImageRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

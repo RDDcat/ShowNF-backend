@@ -1,6 +1,6 @@
 package com.shownf.reptile;
 
-import com.shownf.reptile.entity.*;
+import com.shownf.reptile.Model.entity.*;
 import com.shownf.reptile.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

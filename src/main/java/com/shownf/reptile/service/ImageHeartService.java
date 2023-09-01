@@ -1,7 +1,7 @@
 package com.shownf.reptile.service;
 
-import com.shownf.reptile.DTO.RequestImageHeartDeleteDTO;
-import com.shownf.reptile.DTO.RequestImageHeartSaveDTO;
+import com.shownf.reptile.Model.DTO.RequestImageHeartDeleteDTO;
+import com.shownf.reptile.Model.DTO.RequestImageHeartSaveDTO;
 import com.shownf.reptile.bean.DeleteImageHeartBean;
 import com.shownf.reptile.bean.SaveImageHeartBean;
 import org.springframework.beans.factory.annotation.Autowired;

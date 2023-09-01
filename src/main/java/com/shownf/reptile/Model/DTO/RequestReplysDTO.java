@@ -1,16 +1,15 @@
-package com.shownf.reptile.DTO;
+package com.shownf.reptile.Model.DTO;
 
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-public class RequestCommentsDTO {
+public class RequestReplysDTO {
+    Long replyId;
     Long commentId;
-    Long postId;
     String userId;
     String content;
     LocalDateTime uploadTime;
     Integer heartCount;
-    Integer replyCount;
 }

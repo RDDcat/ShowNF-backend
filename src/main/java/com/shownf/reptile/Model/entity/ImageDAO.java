@@ -1,4 +1,4 @@
-package com.shownf.reptile.entity;
+package com.shownf.reptile.Model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,10 +14,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-public class PostHeartDAO {
+public class ImageDAO {
     @Id
-    Long postHeartId;
-    Long postId;
-    String userId;
+    Long imageId;
+    String imageName;
+    String imageUrl;
     LocalDateTime uploadTime;
+    Integer heartCount;
 }

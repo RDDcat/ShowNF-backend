@@ -1,4 +1,4 @@
-package com.shownf.reptile.DTO;
+package com.shownf.reptile.Model.DTO;
 
 import lombok.Data;
 

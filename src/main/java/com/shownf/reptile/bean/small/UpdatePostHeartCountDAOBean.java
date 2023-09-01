@@ -1,7 +1,7 @@
 package com.shownf.reptile.bean.small;
 
-import com.shownf.reptile.entity.PostDAO;
-import com.shownf.reptile.entity.PostHeartDAO;
+import com.shownf.reptile.Model.entity.PostDAO;
+import com.shownf.reptile.Model.entity.PostHeartDAO;
 import com.shownf.reptile.repository.PostRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

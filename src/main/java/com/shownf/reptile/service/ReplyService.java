@@ -1,8 +1,8 @@
 package com.shownf.reptile.service;
 
-import com.shownf.reptile.DTO.RequestReplyDeleteDTO;
-import com.shownf.reptile.DTO.RequestReplySaveDTO;
-import com.shownf.reptile.DTO.RequestReplysDTO;
+import com.shownf.reptile.Model.DTO.RequestReplyDeleteDTO;
+import com.shownf.reptile.Model.DTO.RequestReplySaveDTO;
+import com.shownf.reptile.Model.DTO.RequestReplysDTO;
 import com.shownf.reptile.bean.DeleteReplyBean;
 import com.shownf.reptile.bean.GetReplysBean;
 import com.shownf.reptile.bean.SaveReplyBean;
