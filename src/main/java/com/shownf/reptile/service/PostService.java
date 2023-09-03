@@ -2,6 +2,7 @@ package com.shownf.reptile.service;
 
 import com.shownf.reptile.Model.DTO.RequestPostDTO;
 import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
+import com.shownf.reptile.bean.GetCategoryPostsBean;
 import com.shownf.reptile.bean.GetPostsBean;
 import com.shownf.reptile.bean.GetPostBean;
 import com.shownf.reptile.bean.SavePostBean;
@@ -15,12 +16,14 @@ public class PostService {
 
     GetPostBean getPostBean;
     GetPostsBean getHotPostsBean;
+    GetCategoryPostsBean categoryPostsBean;
     SavePostBean savePostBean;
 
     @Autowired
-    public PostService(GetPostBean getPostBean, GetPostsBean getHotPostsBean, SavePostBean savePostBean) {
+    public PostService(GetPostBean getPostBean, GetPostsBean getHotPostsBean, GetCategoryPostsBean categoryPostsBean, SavePostBean savePostBean) {
         this.getPostBean = getPostBean;
         this.getHotPostsBean = getHotPostsBean;
+        this.categoryPostsBean = categoryPostsBean;
         this.savePostBean = savePostBean;
     }
 
@@ -32,6 +35,11 @@ public class PostService {
     // 핫 게시물 조회
     public Page<RequestPostDTO> getHotPosts(Pageable pageable){
         return getHotPostsBean.exec(pageable);
+    }
+
+    // 카테고리별 게시물 조회
+    public Page<RequestPostDTO> getCategoryPosts(String category, Pageable pageable){
+        return categoryPostsBean.exec(category, pageable);
     }
 
     // 게시물 저장

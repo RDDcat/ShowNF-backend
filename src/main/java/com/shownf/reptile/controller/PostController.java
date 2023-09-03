@@ -39,6 +39,12 @@ public class PostController {
         return postService.getHotPosts(pageable);
     }
 
+    // 카테고리별 게시물 조회
+    @GetMapping("post/category/{category}")
+    public Page<RequestPostDTO> getCategoryPosts(@PathVariable String category, @PageableDefault(size=5, sort="uploadTime", direction = Sort.Direction.DESC) Pageable pageable){
+        return postService.getCategoryPosts(category, pageable);
+    }
+
     // 게시물 저장
     @PostMapping("post")
     public ResponseEntity<Map<String, Object>> savePost(@RequestBody RequestPostSaveDTO requestPostSaveDTO){
