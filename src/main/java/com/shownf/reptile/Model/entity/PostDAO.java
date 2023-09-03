@@ -1,5 +1,6 @@
 package com.shownf.reptile.Model.entity;
 
+import com.shownf.reptile.Model.Enum.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ public class PostDAO {
     String userId;
     String title;
     String content;
-    String category;
+    Category category;
     LocalDateTime uploadTime;
     Integer heartCount;
     Integer commentCount;

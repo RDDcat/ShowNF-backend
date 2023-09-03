@@ -1,6 +1,7 @@
 package com.shownf.reptile.bean.small;
 
 import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
+import com.shownf.reptile.Model.Enum.Category;
 import com.shownf.reptile.Model.entity.PostDAO;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +23,7 @@ public class CreatePostDAOBean {
         String content = requestPostSaveDTO.getContent().toString();
 
         // 카테고리
-        String category = requestPostSaveDTO.getCategory();
+        Category category = Category.valueOf(requestPostSaveDTO.getCategory());
 
         // 시간
         LocalDateTime localDateTime = LocalDateTime.now();
