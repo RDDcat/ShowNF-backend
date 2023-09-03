@@ -1,7 +1,12 @@
 package com.shownf.reptile.controller;
 
+import com.shownf.reptile.Model.DTO.RequestImageDTO;
 import com.shownf.reptile.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +22,12 @@ public class ImageController {
     @Autowired
     public ImageController(ImageService imageService) {
         this.imageService = imageService;
+    }
+
+    // 스와이프 이미지 조회
+    @GetMapping("image")
+    public Page<RequestImageDTO> getImages(@PageableDefault(size=5, sort="uploadTime", direction = Sort.Direction.DESC) Pageable pageable){
+        return imageService.getImages(pageable);
     }
 
     // 이미지 저장
