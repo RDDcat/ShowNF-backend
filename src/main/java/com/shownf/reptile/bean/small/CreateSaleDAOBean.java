@@ -14,7 +14,7 @@ public class CreateSaleDAOBean {
         String userId = requestSaleSaveDTO.getUserId();
 
         // 이미지 Url
-        String imageUrl = requestSaleSaveDTO.getImageUrl();
+        String imageUrl = requestSaleSaveDTO.getImageUrl().toString();
 
         // 개체
         String individual = requestSaleSaveDTO.getIndividual();
