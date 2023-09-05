@@ -2,14 +2,14 @@ package com.shownf.reptile.service;
 
 import com.shownf.reptile.Model.DTO.RequestPostDTO;
 import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
-import com.shownf.reptile.bean.GetCategoryPostsBean;
-import com.shownf.reptile.bean.GetPostsBean;
-import com.shownf.reptile.bean.GetPostBean;
-import com.shownf.reptile.bean.SavePostBean;
+import com.shownf.reptile.Model.DTO.ResponsePostsDTO;
+import com.shownf.reptile.bean.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PostService {
@@ -17,13 +17,15 @@ public class PostService {
     GetPostBean getPostBean;
     GetPostsBean getHotPostsBean;
     GetCategoryPostsBean categoryPostsBean;
+    GetUserPostHeartsBean getUserPostHeartsBean;
     SavePostBean savePostBean;
 
     @Autowired
-    public PostService(GetPostBean getPostBean, GetPostsBean getHotPostsBean, GetCategoryPostsBean categoryPostsBean, SavePostBean savePostBean) {
+    public PostService(GetPostBean getPostBean, GetPostsBean getHotPostsBean, GetCategoryPostsBean categoryPostsBean, GetUserPostHeartsBean getUserPostHeartsBean, SavePostBean savePostBean) {
         this.getPostBean = getPostBean;
         this.getHotPostsBean = getHotPostsBean;
         this.categoryPostsBean = categoryPostsBean;
+        this.getUserPostHeartsBean = getUserPostHeartsBean;
         this.savePostBean = savePostBean;
     }
 
@@ -40,6 +42,11 @@ public class PostService {
     // 카테고리별 게시물 조회
     public Page<RequestPostDTO> getCategoryPosts(String category, Pageable pageable){
         return categoryPostsBean.exec(category, pageable);
+    }
+
+    // 유저가 좋아요한 게시물 조회
+    public List<ResponsePostsDTO> getUserPostHearts(String userId){
+        return getUserPostHeartsBean.exec(userId);
     }
 
     // 게시물 저장

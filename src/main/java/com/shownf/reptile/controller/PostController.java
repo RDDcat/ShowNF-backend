@@ -2,6 +2,7 @@ package com.shownf.reptile.controller;
 
 import com.shownf.reptile.Model.DTO.RequestPostDTO;
 import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
+import com.shownf.reptile.Model.DTO.ResponsePostsDTO;
 import com.shownf.reptile.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -44,6 +46,13 @@ public class PostController {
     public Page<RequestPostDTO> getCategoryPosts(@PathVariable String category, @PageableDefault(size=5, sort="uploadTime", direction = Sort.Direction.DESC) Pageable pageable){
         return postService.getCategoryPosts(category, pageable);
     }
+
+    // 유저가 좋아요한 게시물 조회
+    @GetMapping("post/user/{userId}")
+    public List<ResponsePostsDTO> getUserPostHearts(@PathVariable String userId){
+        return postService.getUserPostHearts(userId);
+    }
+
 
     // 게시물 저장
     @PostMapping("post")
