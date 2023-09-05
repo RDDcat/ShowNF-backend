@@ -37,7 +37,10 @@ public class CreateSaleDAOBean {
         // 가격
         Integer price = requestSaleSaveDTO.getPrice();
 
+        // 좋아요 갯수
+        Integer heartCount = 0;
+
         // DTO 반환
-        return new SaleDAO(saleId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price);
+        return new SaleDAO(saleId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price, heartCount);
     }
 }

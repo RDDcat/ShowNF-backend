@@ -25,4 +25,5 @@ public class SaleDAO {
     Double weight;
     String speciesExplain;
     Integer price;
+    Integer heartCount;
 }
