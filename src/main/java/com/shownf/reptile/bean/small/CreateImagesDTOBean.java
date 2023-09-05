@@ -1,6 +1,7 @@
 package com.shownf.reptile.bean.small;
 
 import com.shownf.reptile.Model.DTO.RequestImageDTO;
+import com.shownf.reptile.Model.DTO.ResponseImagesDTO;
 import com.shownf.reptile.Model.entity.ImageDAO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -33,5 +34,27 @@ public class CreateImagesDTOBean {
 
         // List 구조를 Page 구조로 변경 후 반환
         return new PageImpl<>(requestImageDTOs, pageable, imageDAOs.getTotalElements());
+    }
+
+    // 이미지 아이디로 이미지 조회시 DTO 생성
+    public List<ResponseImagesDTO> exec(List<ImageDAO> imageDAOs){
+
+        List<ResponseImagesDTO> responseImagesDTOs = new ArrayList<>();
+
+        // DTO 객체에 게시물 정보 넘기기
+        for (ImageDAO imageDAO: imageDAOs) {
+            ResponseImagesDTO responseImagesDTO = new ResponseImagesDTO();
+
+            responseImagesDTO.setImageId(imageDAO.getImageId());
+            responseImagesDTO.setImageName(imageDAO.getImageName());
+            responseImagesDTO.setImageUrl(imageDAO.getImageUrl());
+            responseImagesDTO.setUploadTime(imageDAO.getUploadTime());
+            responseImagesDTO.setHeartCount(imageDAO.getHeartCount());
+
+            responseImagesDTOs.add(responseImagesDTO);
+        }
+
+        // DTO 반환
+        return responseImagesDTOs;
     }
 }
