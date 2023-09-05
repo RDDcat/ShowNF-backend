@@ -34,8 +34,6 @@ public class GetUserImageHeartsBean {
         // 유저 아이디를 통해 이미지 좋아요 객체 찾기
         List<ImageHeartDAO> imageHeartDAOs = getImageHeartsDAOBean.exec(userId);
 
-        System.out.println("imageHeartDAOs.get(0).getUserId() = " + imageHeartDAOs.get(0).getUserId());
-        
         // 좋아요 객체에서 이미지 아이디 찾기
         List<Long> imageIds = getImageHeartsImageIdBean.exec(imageHeartDAOs);
 

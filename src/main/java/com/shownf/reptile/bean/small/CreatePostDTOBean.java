@@ -1,7 +1,6 @@
 package com.shownf.reptile.bean.small;
 
 import com.shownf.reptile.Model.DTO.RequestPostDTO;
-import com.shownf.reptile.Model.Enum.Category;
 import com.shownf.reptile.Model.entity.PostDAO;
 import org.springframework.stereotype.Component;
 
