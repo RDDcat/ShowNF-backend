@@ -1,6 +1,7 @@
 package com.shownf.reptile.bean.small;
 
 import com.shownf.reptile.Model.DTO.RequestPostDTO;
+import com.shownf.reptile.Model.DTO.ResponsePostsDTO;
 import com.shownf.reptile.Model.entity.PostDAO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -67,5 +68,31 @@ public class CreatePostsDTOBean {
 
         // List 구조를 Page 구조로 변경 후 반환
         return new PageImpl<>(requestPostDTOs, pageable, postDAOs.getTotalElements());
+    }
+
+    // 게시물 아이디로 게시물 조회시 DTO 생성
+    public List<ResponsePostsDTO> exec(List<PostDAO> postDAOs){
+
+        List<ResponsePostsDTO> responsePostsDTOs = new ArrayList<>();
+
+        // DTO 객체에 게시물 정보 넘기기
+        for (PostDAO postDAO: postDAOs) {
+            ResponsePostsDTO responsePostsDTO = new ResponsePostsDTO();
+
+            responsePostsDTO.setPostId(postDAO.getPostId());
+            responsePostsDTO.setUserId(postDAO.getUserId());
+            responsePostsDTO.setTitle(postDAO.getTitle());
+            responsePostsDTO.setContent(postDAO.getContent());
+            responsePostsDTO.setCategory(postDAO.getCategory().name());
+            responsePostsDTO.setUploadTime(postDAO.getUploadTime());
+            responsePostsDTO.setHeartCount(postDAO.getHeartCount());
+            responsePostsDTO.setCommentCount(postDAO.getCommentCount());
+            responsePostsDTO.setViewCount(postDAO.getViewCount());
+
+            responsePostsDTOs.add(responsePostsDTO);
+        }
+
+        // DTO 반환
+        return responsePostsDTOs;
     }
 }
