@@ -33,6 +33,8 @@ public class InitDB {
         private final ReplyHeartRepositoryJPA replyHeartRepositoryJPA;
         private final ImageRepositoryJPA imageRepositoryJPA;
         private final ImageHeartRepositoryJPA imageHeartRepositoryJPA;
+        private final SaleRepositoryJPA saleRepositoryJPA;
+        private final SaleHeartRepositoryJPA saleHeartRepositoryJPA;
 
         public void dbInit(){
             PostDAO postDAO1 = new PostDAO(0, "코딩좀비", "테스트 제목1", "[{imageUrl=http://localhost:8080/test1.jpg, content=content1}, {imageUrl=http://localhost:8080/test2.jpg, content=content2}]", Category.FROG, LocalDateTime.now(), 3, 1, 0);
@@ -175,6 +177,8 @@ public class InitDB {
             imageHeartRepositoryJPA.save(imageHeartDAO5);
             imageHeartRepositoryJPA.save(imageHeartDAO6);
 
+            SaleDAO saleDAO1 = new SaleDAO(0L, "aa", "[{imageUrl=http://localhost:8080/test1.jpg}, {imageUrl=http://localhost:8080/test2.jpg}]", "개체", "첫번째 종", "두번째 종", "생일", 2.4, "개체 설명", 1111, 0);
+            saleRepositoryJPA.save(saleDAO1);
         }
     }
 }
