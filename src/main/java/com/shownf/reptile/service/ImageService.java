@@ -1,7 +1,9 @@
 package com.shownf.reptile.service;
 
 import com.shownf.reptile.Model.DTO.RequestImageDTO;
+import com.shownf.reptile.Model.DTO.ResponseImagesDTO;
 import com.shownf.reptile.bean.GetImagesBean;
+import com.shownf.reptile.bean.GetUserImageHeartsBean;
 import com.shownf.reptile.bean.SaveImagesBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,11 +18,13 @@ import java.util.List;
 public class ImageService {
 
     SaveImagesBean saveImageBean;
+    GetUserImageHeartsBean getUserImageHeartsBean;
     GetImagesBean getImagesBean;
 
     @Autowired
-    public ImageService(SaveImagesBean saveImageBean, GetImagesBean getImagesBean) {
+    public ImageService(SaveImagesBean saveImageBean, GetUserImageHeartsBean getUserImageHeartsBean, GetImagesBean getImagesBean) {
         this.saveImageBean = saveImageBean;
+        this.getUserImageHeartsBean = getUserImageHeartsBean;
         this.getImagesBean = getImagesBean;
     }
 
@@ -28,6 +32,12 @@ public class ImageService {
     public Page<RequestImageDTO> getImages(Pageable pageable){
         return getImagesBean.exec(pageable);
     }
+
+    // 유저가 좋아요한 이미지 조회
+    public List<ResponseImagesDTO> getUserImageHearts(String userId){
+        return getUserImageHeartsBean.exec(userId);
+    }
+
 
     // 이미지 저장
     public void saveImage(List<MultipartFile> files) throws IOException {
