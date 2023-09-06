@@ -25,7 +25,7 @@ public class ReplyController {
     }
 
     // 대댓글 전체 조회
-    @GetMapping("reply/{commentId}")
+    @GetMapping("reply/comment/{commentId}")
     public List<RequestReplysDTO> getReplys(@PathVariable Long commentId){
         return replyService.getReplys(commentId);
     }

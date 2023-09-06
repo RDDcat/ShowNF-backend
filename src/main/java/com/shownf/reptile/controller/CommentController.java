@@ -24,9 +24,8 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    // 이거 comment/postId 이게 좀 어색하네;;
     // 댓글 전체 조회
-    @GetMapping("comment/{postId}")
+    @GetMapping("comment/post/{postId}")
     public List<RequestCommentsDTO> getComments(@PathVariable Long postId){
         return commentService.getComments(postId);
     }

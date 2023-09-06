@@ -36,7 +36,7 @@ public class PostController {
     }
 
     // 핫 게시물 조회
-    @GetMapping("post")
+    @GetMapping("post/hot")
     public Page<RequestPostDTO> getHotPosts(@PageableDefault(size=5, sort="heartCount", direction = Sort.Direction.DESC) Pageable pageable){
         return postService.getHotPosts(pageable);
     }
