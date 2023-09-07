@@ -31,4 +31,20 @@ public class UpdateSaleHeartCountDAOBean {
         // 분양글 반환
         return saleDAO;
     }
+
+    // 분양글 좋아요 갯수 감소
+    public SaleDAO exec(Long saleHeartId, SaleHeartDAO saleHeartDAO){
+
+        // saleId 가져오기
+        Long saleId = saleHeartDAO.getSaleId();
+
+        // saleId 로 분양글 찾기
+        SaleDAO saleDAO = saleRepositoryJPA.findById(saleId).get();
+
+        // 분양글 좋아요 수 1 감소
+        saleDAO.setHeartCount(saleDAO.getHeartCount() - 1);
+
+        // 분양글 반환
+        return saleDAO;
+    }
 }
