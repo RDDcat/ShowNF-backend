@@ -1,16 +1,15 @@
 package com.shownf.reptile.controller;
 
 import com.shownf.reptile.Model.DTO.RequestSaleSaveDTO;
+import com.shownf.reptile.Model.DTO.ResponseSalesDTO;
 import com.shownf.reptile.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -22,6 +21,12 @@ public class SaleController {
     @Autowired
     public SaleController(SaleService saleService) {
         this.saleService = saleService;
+    }
+
+    // 유저가 좋아요한 분양글 조회
+    @GetMapping("sale/user/{userId}")
+    public List<ResponseSalesDTO> getUserSaleHearts(@PathVariable String userId){
+        return saleService.getUserSaleHearts(userId);
     }
 
     // 분양글 저장
