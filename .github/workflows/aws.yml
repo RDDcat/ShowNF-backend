@@ -70,11 +70,10 @@ jobs:
           sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
 
           sudo docker run -p ${{ secrets.PORT }}:${{ secrets.PORT }} \
-          --name ${{ secrets.PROJECT_NAME }} \          
-          -e SPRING_DATASOURCE_URL=${{ secrets.DB_URL }} \
-          -e SPRING_DATASOURCE_USERNAME=${{ secrets.DB_USERNAME }} \
-          -e SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }} \
-          -e AWS_S3_ACCESSKEY=${{ secrets.AWS_S3_ACCESSKEY }} \
-          -e AWS_S3_SECRETKEY=${{ secrets.AWS_S3_SECRETKEY }} \
-          -d ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}\
-          
+          -name ${{ secrets.PROJECT_NAME }} \    
+          --SPRING_DATASOURCE_URL=${{ secrets.DB_URL }} \
+          --SPRING_DATASOURCE_USERNAME=${{ secrets.DB_USERNAME }} \
+          --SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }} \
+          --AWS_S3_ACCESSKEY=${{ secrets.AWS_S3_ACCESSKEY }} \
+          --AWS_S3_SECRETKEY=${{ secrets.AWS_S3_SECRETKEY }} \
+          -d rddcat/reptile
