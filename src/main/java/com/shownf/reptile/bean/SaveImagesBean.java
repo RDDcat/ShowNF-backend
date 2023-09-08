@@ -1,7 +1,6 @@
 package com.shownf.reptile.bean;
 
-import com.shownf.reptile.bean.small.CreateImagesDAOBean;
-import com.shownf.reptile.bean.small.SaveImagesDAOBean;
+import com.shownf.reptile.bean.small.*;
 import com.shownf.reptile.Model.entity.ImageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,24 +11,29 @@ import java.util.List;
 
 @Component
 public class SaveImagesBean {
-
-    CreateImagesDAOBean createImagesDAOBean;
-    SaveImagesDAOBean saveImagesDAOBean;
+    SaveImageS3Bean saveImageS3Bean;
+    CreateImageDAOBean createImageDAOBean;
+    SaveImageDAOBean saveImageDAOBean;
 
     @Autowired
-    public SaveImagesBean(CreateImagesDAOBean createImagesDAOBean, SaveImagesDAOBean saveImagesDAOBean) {
-        this.createImagesDAOBean = createImagesDAOBean;
-        this.saveImagesDAOBean = saveImagesDAOBean;
+    public SaveImagesBean(SaveImageS3Bean saveImageS3Bean, CreateImageDAOBean createImageDAOBean, SaveImageDAOBean saveImageDAOBean) {
+        this.saveImageS3Bean = saveImageS3Bean;
+        this.createImageDAOBean = createImageDAOBean;
+        this.saveImageDAOBean = saveImageDAOBean;
     }
 
     // 이미지 저장
-    public void exec(List<MultipartFile> files) throws IOException {
-
-        // 이미지 DAO 저장
-        List<ImageDAO> imageDAOs = createImagesDAOBean.exec(files);
+    public void exec(MultipartFile file) throws IOException {
 
         // 이미지 저장
-        saveImagesDAOBean.exec(imageDAOs);
+        // List<String> imageUrls = saveImagesS3Bean.exec(files.get(0));
+        String imageUrls = saveImageS3Bean.exec(file);
+
+        // 이미지 DAO 생성
+        ImageDAO imageDAO = createImageDAOBean.exec(file, imageUrls);
+
+        // 이미지 DAO 저장
+        saveImageDAOBean.exec(imageDAO);
 
     }
 }

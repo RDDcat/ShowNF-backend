@@ -40,7 +40,7 @@ public class ImageService {
 
 
     // 이미지 저장
-    public void saveImage(List<MultipartFile> files) throws IOException {
-        saveImageBean.exec(files);
+    public void saveImage(MultipartFile file) throws IOException {
+        saveImageBean.exec(file);
     }
 }

@@ -39,9 +39,9 @@ public class ImageController {
 
     // 이미지 저장
     @PostMapping("image")
-    public String saveImage(@RequestParam("files")List<MultipartFile> files) throws IOException {
-        imageService.saveImage(files);
-        return "image_upload";
+    public String saveImage(@RequestParam("file")MultipartFile file) throws IOException {
+        imageService.saveImage(file);
+        return "image_uploaded";
 
 /*
         // HTTP 상태 변환
