@@ -74,7 +74,7 @@ jobs:
           -e SPRING_DATASOURCE_URL=${{ secrets.DB_URL }} \
           -e SPRING_DATASOURCE_USERNAME=${{ secrets.DB_USERNAME }} \
           -e SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }} \
-          -e cloud.aws.credentials.accessKey=${{ secrets.AWS_S3_ACCESSKEY }} \
-          -e cloud.aws.credentials.secretKey=${{ secrets.AWS_S3_SECRETKEY }} \
+          --cloud.aws.credentials.accessKey=${{ secrets.AWS_S3_ACCESSKEY }} \
+          --cloud.aws.credentials.secretKey=${{ secrets.AWS_S3_SECRETKEY }} \
           -d ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}\
           
