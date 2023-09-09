@@ -18,6 +18,11 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
 
+    - uses: actions/checkout@v3
+    - run: touch ./src/main/resources/application-secret.properties
+    - run: echo "${{ secrets.REPTIEL_PROPERTIES }}" > ./src/main/resources/application-secret.properties
+    - run: cat ./src/main/resources/application-secret.properties
+
     - name: Change wrapper permissions
       run: chmod +x ./gradlew
       
@@ -70,10 +75,5 @@ jobs:
           sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
 
           sudo docker run -p ${{ secrets.PORT }}:${{ secrets.PORT }} \
-          --name ${{ secrets.PROJECT_NAME }} \    
-          -env SPRING_DATASOURCE_URL=${{ secrets.DB_URL }} \
-          -env SPRING_DATASOURCE_USERNAME=${{ secrets.DB_USERNAME }} \
-          -env SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }} \
-          -env AWS_S3_ACCESSKEY=${{ secrets.AWS_S3_ACCESSKEY }} \
-          -env AWS_S3_SECRETKEY=${{ secrets.AWS_S3_SECRETKEY }} \
+          --name ${{ secrets.PROJECT_NAME }} \
           -d rddcat/reptile
