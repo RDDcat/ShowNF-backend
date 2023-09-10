@@ -3,6 +3,7 @@ package com.shownf.reptile.bean;
 import com.shownf.reptile.Model.DTO.RequestPetSaveDTO;
 import com.shownf.reptile.bean.small.CreateUniqueIdBean;
 import com.shownf.reptile.bean.small.SavePetDAOBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,6 +11,12 @@ public class SavePetBean {
 
     CreateUniqueIdBean createUniqueIdBean;
     SavePetDAOBean savePetDAOBean;
+
+    @Autowired
+    public SavePetBean(CreateUniqueIdBean createUniqueIdBean, SavePetDAOBean savePetDAOBean) {
+        this.createUniqueIdBean = createUniqueIdBean;
+        this.savePetDAOBean = savePetDAOBean;
+    }
 
     public Long exec(RequestPetSaveDTO requestPetSaveDTO){
 
