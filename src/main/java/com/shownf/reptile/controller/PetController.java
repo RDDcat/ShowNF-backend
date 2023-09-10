@@ -1,14 +1,12 @@
 package com.shownf.reptile.controller;
 
+import com.shownf.reptile.Model.DTO.RequestPetDTO;
 import com.shownf.reptile.Model.DTO.RequestPetSaveDTO;
 import com.shownf.reptile.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +22,13 @@ public class PetController {
         this.petService = petService;
     }
 
-    // 게시물 저장
+    // 마이펫 조회
+    @GetMapping("pet/{petId}")
+    public RequestPetDTO getPet(@PathVariable Long petId){
+        return petService.getPet(petId);
+    }
+
+    // 마이펫 저장
     @PostMapping("pet")
     public ResponseEntity<Map<String, Object>> savePet(@RequestBody RequestPetSaveDTO requestPetSaveDTO){
         Long petId = petService.savePet(requestPetSaveDTO);
