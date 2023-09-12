@@ -10,14 +10,12 @@ public class SavePostBean {
 
     CreateUniqueIdBean createUniqueIdBean;
     SavePostContentsDAOBean savePostContentsDAOBean;
-    SaveImagesDAOBean saveImagesDAOBean;
     SavePostDAOBean savePostDAOBean;
 
     @Autowired
-    public SavePostBean(CreateUniqueIdBean createUniqueIdBean, SavePostContentsDAOBean savePostContentsDAOBean, SaveImagesDAOBean saveImagesDAOBean, SavePostDAOBean savePostDAOBean) {
+    public SavePostBean(CreateUniqueIdBean createUniqueIdBean, SavePostContentsDAOBean savePostContentsDAOBean, SavePostDAOBean savePostDAOBean) {
         this.createUniqueIdBean = createUniqueIdBean;
         this.savePostContentsDAOBean = savePostContentsDAOBean;
-        this.saveImagesDAOBean = saveImagesDAOBean;
         this.savePostDAOBean = savePostDAOBean;
     }
 

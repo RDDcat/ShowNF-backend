@@ -10,13 +10,11 @@ import org.springframework.stereotype.Component;
 public class SavePetBean {
 
     CreateUniqueIdBean createUniqueIdBean;
-    SaveImagesDAOBean saveImagesDAOBean;
     SavePetDAOBean savePetDAOBean;
 
     @Autowired
-    public SavePetBean(CreateUniqueIdBean createUniqueIdBean, SaveImagesDAOBean saveImagesDAOBean, SavePetDAOBean savePetDAOBean) {
+    public SavePetBean(CreateUniqueIdBean createUniqueIdBean, SavePetDAOBean savePetDAOBean) {
         this.createUniqueIdBean = createUniqueIdBean;
-        this.saveImagesDAOBean = saveImagesDAOBean;
         this.savePetDAOBean = savePetDAOBean;
     }
 
