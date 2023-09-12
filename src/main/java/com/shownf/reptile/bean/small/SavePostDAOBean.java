@@ -1,5 +1,6 @@
 package com.shownf.reptile.bean.small;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shownf.reptile.Model.DTO.RequestPostSaveDTO;
 import com.shownf.reptile.Model.Enum.Category;
 import com.shownf.reptile.Model.entity.PostDAO;
@@ -7,6 +8,7 @@ import com.shownf.reptile.repository.PostRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Component
@@ -34,7 +36,13 @@ public class SavePostDAOBean {
         String title = requestPostSaveDTO.getTitle();
 
         // 내용
-        String content = requestPostSaveDTO.getContent().toString();
+        ObjectMapper objectMapper = new ObjectMapper();
+        String content = "";
+        try {
+            content = objectMapper.writeValueAsString(requestPostSaveDTO.getContent());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
         // 카테고리
         Category category = Category.valueOf(requestPostSaveDTO.getCategory());
