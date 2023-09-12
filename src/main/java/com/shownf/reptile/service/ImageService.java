@@ -4,7 +4,7 @@ import com.shownf.reptile.Model.DTO.RequestImageDTO;
 import com.shownf.reptile.Model.DTO.ResponseImagesDTO;
 import com.shownf.reptile.bean.GetImagesBean;
 import com.shownf.reptile.bean.GetUserImageHeartsBean;
-import com.shownf.reptile.bean.SaveImagesBean;
+import com.shownf.reptile.bean.SaveImageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,12 +17,12 @@ import java.util.List;
 @Service
 public class ImageService {
 
-    SaveImagesBean saveImageBean;
+    SaveImageBean saveImageBean;
     GetUserImageHeartsBean getUserImageHeartsBean;
     GetImagesBean getImagesBean;
 
     @Autowired
-    public ImageService(SaveImagesBean saveImageBean, GetUserImageHeartsBean getUserImageHeartsBean, GetImagesBean getImagesBean) {
+    public ImageService(SaveImageBean saveImageBean, GetUserImageHeartsBean getUserImageHeartsBean, GetImagesBean getImagesBean) {
         this.saveImageBean = saveImageBean;
         this.getUserImageHeartsBean = getUserImageHeartsBean;
         this.getImagesBean = getImagesBean;

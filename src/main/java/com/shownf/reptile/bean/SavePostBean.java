@@ -28,9 +28,6 @@ public class SavePostBean {
         // postContents 저장
         savePostContentsDAOBean.exec(postId, requestPostSaveDTO);
 
-        // 이미지 저장
-        saveImagesDAOBean.exec(requestPostSaveDTO);
-
         // 게시물 저장
         savePostDAOBean.exec(postId, requestPostSaveDTO);
 

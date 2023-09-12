@@ -7,16 +7,15 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @Component
-public class SaveImagesBean {
+public class SaveImageBean {
     SaveImageS3Bean saveImageS3Bean;
     CreateImageDAOBean createImageDAOBean;
     SaveImageDAOBean saveImageDAOBean;
 
     @Autowired
-    public SaveImagesBean(SaveImageS3Bean saveImageS3Bean, CreateImageDAOBean createImageDAOBean, SaveImageDAOBean saveImageDAOBean) {
+    public SaveImageBean(SaveImageS3Bean saveImageS3Bean, CreateImageDAOBean createImageDAOBean, SaveImageDAOBean saveImageDAOBean) {
         this.saveImageS3Bean = saveImageS3Bean;
         this.createImageDAOBean = createImageDAOBean;
         this.saveImageDAOBean = saveImageDAOBean;

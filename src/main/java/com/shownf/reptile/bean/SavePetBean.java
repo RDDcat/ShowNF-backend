@@ -2,7 +2,6 @@ package com.shownf.reptile.bean;
 
 import com.shownf.reptile.Model.DTO.RequestPetSaveDTO;
 import com.shownf.reptile.bean.small.CreateUniqueIdBean;
-import com.shownf.reptile.bean.small.SaveImagesDAOBean;
 import com.shownf.reptile.bean.small.SavePetDAOBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,9 +24,6 @@ public class SavePetBean {
 
         // petId 생성
         Long petId = createUniqueIdBean.exec();
-
-        // 마이펫 이미지 저장
-        saveImagesDAOBean.exec(requestPetSaveDTO);
 
         // 마이펫 저장
         savePetDAOBean.exec(petId, requestPetSaveDTO);
