@@ -20,6 +20,7 @@ public class CreatePetDTOBean {
         requestPetDTO.setSecondSpecies(petDAO.getSecondSpecies());
         requestPetDTO.setBirthday(petDAO.getBirthday());
         requestPetDTO.setWeight(petDAO.getWeight());
+        requestPetDTO.setUploadTime(petDAO.getUploadTime());
 
         // DTO 반환
         return requestPetDTO;

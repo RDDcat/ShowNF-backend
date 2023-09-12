@@ -2,6 +2,8 @@ package com.shownf.reptile.Model.DTO;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 public class RequestPetDTO {
     Long petId;
@@ -12,4 +14,5 @@ public class RequestPetDTO {
     String secondSpecies;
     String birthday;
     Double weight;
+    LocalDateTime uploadTime;
 }

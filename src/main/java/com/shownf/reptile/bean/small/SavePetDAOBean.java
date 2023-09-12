@@ -6,6 +6,8 @@ import com.shownf.reptile.repository.PetRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class SavePetDAOBean {
 
@@ -45,7 +47,10 @@ public class SavePetDAOBean {
         // 몸무게
         Double weight = requestPetSaveDTO.getWeight();
 
-        exec(new PetDAO(petId, userId, imageUrl, name, firstSpecies, secondSpecies, birthday, weight));
+        // 업로드 시간
+        LocalDateTime uploadTime = LocalDateTime.now();
+
+        exec(new PetDAO(petId, userId, imageUrl, name, firstSpecies, secondSpecies, birthday, weight, uploadTime));
 
     }
 }
