@@ -1,14 +1,12 @@
 package com.shownf.reptile.controller;
 
+import com.shownf.reptile.Model.DTO.RequestDiaryDTO;
 import com.shownf.reptile.Model.DTO.RequestDiarySaveDTO;
 import com.shownf.reptile.service.DiaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +20,12 @@ public class DiaryController {
     @Autowired
     public DiaryController(DiaryService diaryService) {
         this.diaryService = diaryService;
+    }
+
+    // 다이어리 조회
+    @GetMapping("diary/{diaryId}")
+    public RequestDiaryDTO getDiary(@PathVariable Long diaryId){
+        return diaryService.getDiary(diaryId);
     }
 
     // 다이어리 저장
