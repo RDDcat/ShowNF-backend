@@ -50,6 +50,12 @@ public class SaveDiaryDAOBean {
         // 업로드 시간
         LocalDateTime uploadTime = LocalDateTime.now();
 
-        exec(new DiaryDAO(diaryId, petId, userId, food, foodCounter, size, weight, memo, uploadTime));
+        // 날짜
+        String date = requestDiarySaveDTO.getDate();
+
+        // 년, 월
+        String month = date.replaceAll(" ", "").substring(0, 6);
+
+        exec(new DiaryDAO(diaryId, petId, userId, food, foodCounter, size, weight, memo, uploadTime, date, month));
     }
 }
