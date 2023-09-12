@@ -11,4 +11,5 @@ public class RequestDiarySaveDTO {
     String size;
     Double weight;
     String memo;
+    String date;
 }
