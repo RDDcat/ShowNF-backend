@@ -6,6 +6,7 @@ import com.shownf.reptile.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class PetController {
 
     // 마이펫 전체 조회
     @GetMapping("pet/user/{userId}")
-    public Page<RequestPetDTO> getHotPosts(@PathVariable String userId, @PageableDefault(size=12) Pageable pageable){
+    public Page<RequestPetDTO> getHotPosts(@PathVariable String userId, @PageableDefault(size=12, sort="uploadTime", direction = Sort.Direction.ASC) Pageable pageable){
         return petService.getPets(userId, pageable);
     }
 
