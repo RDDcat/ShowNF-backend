@@ -2,6 +2,7 @@ package com.shownf.reptile.controller;
 
 import com.shownf.reptile.Model.DTO.RequestDiaryDTO;
 import com.shownf.reptile.Model.DTO.RequestDiarySaveDTO;
+import com.shownf.reptile.Model.DTO.ResponseDiarysDTO;
 import com.shownf.reptile.service.DiaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -26,6 +28,12 @@ public class DiaryController {
     @GetMapping("diary/{diaryId}")
     public RequestDiaryDTO getDiary(@PathVariable Long diaryId){
         return diaryService.getDiary(diaryId);
+    }
+
+    // 다이어리 월별로 조회
+    @GetMapping("diary/date/{date}")
+    public List<ResponseDiarysDTO> getDiarys(@PathVariable String date){
+        return diaryService.getDiarys(date);
     }
 
     // 다이어리 저장
