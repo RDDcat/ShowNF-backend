@@ -1,11 +1,13 @@
 package com.shownf.reptile.Model.DTO;
 
+import com.shownf.reptile.Model.Enum.SalePlatform;
 import lombok.Data;
 
 
 @Data
 public class ResponseSalesDTO {
     Long saleId;
+    Long petId;
     String userId;
     String imageUrl;
     String individual;
@@ -16,4 +18,5 @@ public class ResponseSalesDTO {
     String speciesExplain;
     Integer price;
     Integer heartCount;
+    String salePlatform;
 }

@@ -8,6 +8,7 @@ import java.util.Map;
 @Data
 public class RequestSaleSaveDTO {
     Long saleId;
+    Long petId;
     String userId;
     List<Map<String, String>> imageUrl;
     String individual;
@@ -17,4 +18,5 @@ public class RequestSaleSaveDTO {
     Double weight;
     String speciesExplain;
     Integer price;
+    String salePlatform;
 }

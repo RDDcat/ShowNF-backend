@@ -1,2 +1,5 @@
-package com.shownf.reptile.Model.Enum;public class SalePlatform {
+package com.shownf.reptile.Model.Enum;
+
+public enum SalePlatform {
+    Original, Naver
 }

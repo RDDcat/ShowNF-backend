@@ -20,6 +20,7 @@ public class CreateSalesDTOBean {
             ResponseSalesDTO responseSalesDTO = new ResponseSalesDTO();
 
             responseSalesDTO.setSaleId(saleDAO.getSaleId());
+            responseSalesDTO.setPetId(saleDAO.getPetId());
             responseSalesDTO.setUserId(saleDAO.getUserId());
             responseSalesDTO.setImageUrl(saleDAO.getImageUrl());
             responseSalesDTO.setIndividual(saleDAO.getIndividual());
@@ -31,6 +32,7 @@ public class CreateSalesDTOBean {
             responseSalesDTO.setSpeciesExplain(saleDAO.getSpeciesExplain());
             responseSalesDTO.setPrice(saleDAO.getPrice());
             responseSalesDTO.setHeartCount(saleDAO.getHeartCount());
+            responseSalesDTO.setSalePlatform(saleDAO.getSalePlatform().name());
 
             responseSalesDTOs.add(responseSalesDTO);
         }

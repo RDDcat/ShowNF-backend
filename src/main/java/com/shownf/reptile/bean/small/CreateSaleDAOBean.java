@@ -1,6 +1,7 @@
 package com.shownf.reptile.bean.small;
 
 import com.shownf.reptile.Model.DTO.RequestSaleSaveDTO;
+import com.shownf.reptile.Model.Enum.SalePlatform;
 import com.shownf.reptile.Model.entity.SaleDAO;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,9 @@ public class CreateSaleDAOBean {
 
     // 분양글 작성시 DAO 생성
     public SaleDAO exec(Long saleId, RequestSaleSaveDTO requestSaleSaveDTO){
+
+        // 마이펫 아이디 - NULL 가능
+        Long petId = requestSaleSaveDTO.getPetId();
 
         // 유저 아이디
         String userId = requestSaleSaveDTO.getUserId();
@@ -40,7 +44,10 @@ public class CreateSaleDAOBean {
         // 좋아요 갯수
         Integer heartCount = 0;
 
+        // 판매 플랫폼
+        SalePlatform salePlatform = SalePlatform.valueOf(requestSaleSaveDTO.getSalePlatform());
+
         // DTO 반환
-        return new SaleDAO(saleId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price, heartCount);
+        return new SaleDAO(saleId, petId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price, heartCount, salePlatform);
     }
 }

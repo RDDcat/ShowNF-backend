@@ -1,5 +1,6 @@
 package com.shownf.reptile.Model.entity;
 
+import com.shownf.reptile.Model.Enum.SalePlatform;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import javax.persistence.Id;
 public class SaleDAO {
     @Id
     Long saleId;
+    Long petId;
     String userId;
     String imageUrl;
     String individual;
@@ -26,4 +28,5 @@ public class SaleDAO {
     String speciesExplain;
     Integer price;
     Integer heartCount;
+    SalePlatform salePlatform;
 }
