@@ -1,6 +1,6 @@
 package com.shownf.reptile.bean;
 
-import com.shownf.reptile.Model.DTO.ResponseSalesDTO;
+import com.shownf.reptile.Model.DTO.ResponseSaleDTO;
 import com.shownf.reptile.Model.entity.SaleDAO;
 import com.shownf.reptile.Model.entity.SaleHeartDAO;
 import com.shownf.reptile.bean.small.CreateSalesDTOBean;
@@ -29,7 +29,7 @@ public class GetUserSaleHeartsBean {
     }
 
     // 유저가 좋아요한 분양글 조회
-    public List<ResponseSalesDTO> exec(String userId){
+    public List<ResponseSaleDTO> exec(String userId){
 
         // 유저 아이디를 통해 분양글 좋아요 객체 찾기
         List<SaleHeartDAO> saleHeartDAOs = getSaleHeartsDAOBean.exec(userId);
