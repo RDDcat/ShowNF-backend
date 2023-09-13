@@ -1,6 +1,7 @@
 package com.shownf.reptile.controller;
 
 import com.shownf.reptile.Model.DTO.RequestSaleSaveDTO;
+import com.shownf.reptile.Model.DTO.ResponseSaleDTO;
 import com.shownf.reptile.Model.DTO.ResponseSalesDTO;
 import com.shownf.reptile.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,12 @@ public class SaleController {
     @Autowired
     public SaleController(SaleService saleService) {
         this.saleService = saleService;
+    }
+
+    // 분양글 조회
+    @GetMapping("sale/{saleId}")
+    public ResponseSaleDTO getSale(@PathVariable Long saleId){
+        return saleService.getSale(saleId);
     }
 
     // 유저가 좋아요한 분양글 조회
