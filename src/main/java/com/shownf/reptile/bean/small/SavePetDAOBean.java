@@ -1,11 +1,13 @@
 package com.shownf.reptile.bean.small;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shownf.reptile.Model.DTO.RequestPetSaveDTO;
 import com.shownf.reptile.Model.entity.PetDAO;
 import com.shownf.reptile.repository.PetRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Component
@@ -30,7 +32,13 @@ public class SavePetDAOBean {
         String userId = requestPetSaveDTO.getUserId();
 
         // 이미지 Url
-        String imageUrl = requestPetSaveDTO.getImageUrl().toString();
+        ObjectMapper objectMapper = new ObjectMapper();
+        String imageUrl = "";
+        try {
+            imageUrl = objectMapper.writeValueAsString(requestPetSaveDTO.getImageUrl());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
         // 이름
         String name = requestPetSaveDTO.getName();

@@ -1,9 +1,12 @@
 package com.shownf.reptile.bean.small;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shownf.reptile.Model.DTO.RequestSaleSaveDTO;
 import com.shownf.reptile.Model.Enum.SalePlatform;
 import com.shownf.reptile.Model.entity.SaleDAO;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 @Component
 public class CreateSaleDAOBean {
@@ -18,8 +21,13 @@ public class CreateSaleDAOBean {
         String userId = requestSaleSaveDTO.getUserId();
 
         // 이미지 Url
-        String imageUrl = requestSaleSaveDTO.getImageUrl().toString();
-
+        ObjectMapper objectMapper = new ObjectMapper();
+        String imageUrl = "";
+        try {
+            imageUrl = objectMapper.writeValueAsString(requestSaleSaveDTO.getImageUrl());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         // 개체
         String individual = requestSaleSaveDTO.getIndividual();
 
