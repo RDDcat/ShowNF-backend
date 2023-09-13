@@ -3,6 +3,8 @@ package com.shownf.reptile.bean.small;
 import com.shownf.reptile.Model.entity.SaleDAO;
 import com.shownf.reptile.repository.SaleRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -27,5 +29,10 @@ public class GetSalesDAOBean {
             saleDAOs.add(saleRepositoryJPA.findById(saleId).get());
 
         return saleDAOs;
+    }
+
+    // 분양글 Page 형태로 전체 조회
+    public Page<SaleDAO> exec(Pageable pageable){
+        return saleRepositoryJPA.findAll(pageable);
     }
 }
