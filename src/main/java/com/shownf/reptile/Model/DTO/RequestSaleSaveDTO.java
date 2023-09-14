@@ -19,4 +19,5 @@ public class RequestSaleSaveDTO {
     String speciesExplain;
     Integer price;
     String salePlatform;
+    String link;
 }

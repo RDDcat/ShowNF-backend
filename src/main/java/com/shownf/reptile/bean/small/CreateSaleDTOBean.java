@@ -26,6 +26,7 @@ public class CreateSaleDTOBean {
         responseSaleDTO.setPrice(saleDAO.getPrice());
         responseSaleDTO.setHeartCount(saleDAO.getHeartCount());
         responseSaleDTO.setSalePlatform(saleDAO.getSalePlatform().name());
+        responseSaleDTO.setLink(saleDAO.getLink());
 
         return responseSaleDTO;
     }

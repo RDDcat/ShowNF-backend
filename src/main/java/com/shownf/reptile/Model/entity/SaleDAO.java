@@ -29,4 +29,5 @@ public class SaleDAO {
     Integer price;
     Integer heartCount;
     SalePlatform salePlatform;
+    String link;
 }

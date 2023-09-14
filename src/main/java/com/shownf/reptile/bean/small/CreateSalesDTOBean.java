@@ -36,6 +36,8 @@ public class CreateSalesDTOBean {
             responseSaleDTO.setPrice(saleDAO.getPrice());
             responseSaleDTO.setHeartCount(saleDAO.getHeartCount());
             responseSaleDTO.setSalePlatform(saleDAO.getSalePlatform().name());
+            responseSaleDTO.setLink(saleDAO.getLink());
+
 
             responseSalesDTOs.add(responseSaleDTO);
         }
@@ -67,6 +69,7 @@ public class CreateSalesDTOBean {
             responseSaleDTO.setPrice(saleDAO.getPrice());
             responseSaleDTO.setHeartCount(saleDAO.getHeartCount());
             responseSaleDTO.setSalePlatform(saleDAO.getSalePlatform().name());
+            responseSaleDTO.setLink(saleDAO.getLink());
 
             responseSaleDTOs.add(responseSaleDTO);
         }

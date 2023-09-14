@@ -1,6 +1,5 @@
 package com.shownf.reptile.Model.DTO;
 
-import com.shownf.reptile.Model.Enum.SalePlatform;
 import lombok.Data;
 
 @Data
@@ -18,4 +17,5 @@ public class ResponseSaleDTO {
     Integer price;
     Integer heartCount;
     String salePlatform;
+    String link;
 }

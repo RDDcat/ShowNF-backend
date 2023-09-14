@@ -55,7 +55,10 @@ public class CreateSaleDAOBean {
         // 판매 플랫폼
         SalePlatform salePlatform = SalePlatform.valueOf(requestSaleSaveDTO.getSalePlatform());
 
+        // 채팅, 네이버 링크
+        String link = requestSaleSaveDTO.getLink();
+
         // DTO 반환
-        return new SaleDAO(saleId, petId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price, heartCount, salePlatform);
+        return new SaleDAO(saleId, petId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price, heartCount, salePlatform, link);
     }
 }
