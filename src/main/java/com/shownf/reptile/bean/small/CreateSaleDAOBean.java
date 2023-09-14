@@ -46,7 +46,7 @@ public class CreateSaleDAOBean {
         Double weight = requestSaleSaveDTO.getWeight();
 
         // 개체 설명
-        String speciesExplain = requestSaleSaveDTO.getSpeciesExplain();
+        String memo = requestSaleSaveDTO.getMemo();
 
         // 가격
         Integer price = requestSaleSaveDTO.getPrice();
@@ -76,6 +76,6 @@ public class CreateSaleDAOBean {
         Gender gender = Gender.valueOf(requestSaleSaveDTO.getGender());
 
         // DTO 반환
-        return new SaleDAO(saleId, petId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price, heartCount, salePlatform, link, refundPolicy, cites, area, region, gender);
+        return new SaleDAO(saleId, petId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, memo, price, heartCount, salePlatform, link, refundPolicy, cites, area, region, gender);
     }
 }

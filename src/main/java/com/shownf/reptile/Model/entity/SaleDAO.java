@@ -27,7 +27,7 @@ public class SaleDAO {
     String secondSpecies;
     String birthday;
     Double weight;
-    String speciesExplain;
+    String memo;
     Integer price;
     Integer heartCount;
     SalePlatform salePlatform;

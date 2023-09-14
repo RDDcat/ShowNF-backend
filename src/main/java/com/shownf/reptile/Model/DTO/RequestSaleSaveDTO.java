@@ -15,7 +15,7 @@ public class RequestSaleSaveDTO {
     String secondSpecies;
     String birthday;
     Double weight;
-    String speciesExplain;
+    String memo;
     Integer price;
     String salePlatform;
     String link;

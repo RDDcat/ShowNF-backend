@@ -22,7 +22,7 @@ public class CreateSaleDTOBean {
         responseSaleDTO.setHeartCount(saleDAO.getHeartCount());
         responseSaleDTO.setBirthday(saleDAO.getBirthday());
         responseSaleDTO.setWeight(saleDAO.getWeight());
-        responseSaleDTO.setSpeciesExplain(saleDAO.getSpeciesExplain());
+        responseSaleDTO.setMemo(saleDAO.getMemo());
         responseSaleDTO.setPrice(saleDAO.getPrice());
         responseSaleDTO.setHeartCount(saleDAO.getHeartCount());
         responseSaleDTO.setSalePlatform(saleDAO.getSalePlatform().name());

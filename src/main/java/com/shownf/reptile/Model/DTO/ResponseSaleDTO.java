@@ -13,7 +13,7 @@ public class ResponseSaleDTO {
     String secondSpecies;
     String birthday;
     Double weight;
-    String speciesExplain;
+    String memo;
     Integer price;
     Integer heartCount;
     String salePlatform;
