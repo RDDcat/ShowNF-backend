@@ -22,7 +22,7 @@ public class SaveImageBean {
     }
 
     // 이미지 저장
-    public void exec(MultipartFile file) throws IOException {
+    public String exec(MultipartFile file) throws IOException {
 
         // 이미지 저장
         // List<String> imageUrls = saveImagesS3Bean.exec(files.get(0));
@@ -34,5 +34,7 @@ public class SaveImageBean {
         // 이미지 DAO 저장
         saveImageDAOBean.exec(imageDAO);
 
+        // 이미지 Url 반환
+        return imageDAO.getImageUrl();
     }
 }
