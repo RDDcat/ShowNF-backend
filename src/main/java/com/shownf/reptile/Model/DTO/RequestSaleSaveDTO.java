@@ -7,7 +7,6 @@ import java.util.Map;
 
 @Data
 public class RequestSaleSaveDTO {
-    Long saleId;
     Long petId;
     String userId;
     List<Map<String, String>> imageUrl;
@@ -20,4 +19,9 @@ public class RequestSaleSaveDTO {
     Integer price;
     String salePlatform;
     String link;
+    String refundPolicy;
+    Boolean cites;
+    String area;
+    String region;
+    String gender;
 }

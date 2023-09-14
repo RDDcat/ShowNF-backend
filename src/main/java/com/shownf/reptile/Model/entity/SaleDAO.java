@@ -1,5 +1,7 @@
 package com.shownf.reptile.Model.entity;
 
+import com.shownf.reptile.Model.Enum.Area;
+import com.shownf.reptile.Model.Enum.Gender;
 import com.shownf.reptile.Model.Enum.SalePlatform;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,4 +32,9 @@ public class SaleDAO {
     Integer heartCount;
     SalePlatform salePlatform;
     String link;
+    String refundPolicy;
+    Boolean cites;
+    Area area;
+    String region;
+    Gender gender;
 }

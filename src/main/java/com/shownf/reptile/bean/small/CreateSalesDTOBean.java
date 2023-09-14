@@ -37,6 +37,11 @@ public class CreateSalesDTOBean {
             responseSaleDTO.setHeartCount(saleDAO.getHeartCount());
             responseSaleDTO.setSalePlatform(saleDAO.getSalePlatform().name());
             responseSaleDTO.setLink(saleDAO.getLink());
+            responseSaleDTO.setRefundPolicy(saleDAO.getRefundPolicy());
+            responseSaleDTO.setCites(saleDAO.getCites());
+            responseSaleDTO.setArea(saleDAO.getArea().name());
+            responseSaleDTO.setRegion(saleDAO.getRegion());
+            responseSaleDTO.setGender(saleDAO.getGender().name());
 
 
             responseSalesDTOs.add(responseSaleDTO);
@@ -70,6 +75,11 @@ public class CreateSalesDTOBean {
             responseSaleDTO.setHeartCount(saleDAO.getHeartCount());
             responseSaleDTO.setSalePlatform(saleDAO.getSalePlatform().name());
             responseSaleDTO.setLink(saleDAO.getLink());
+            responseSaleDTO.setRefundPolicy(saleDAO.getRefundPolicy());
+            responseSaleDTO.setCites(saleDAO.getCites());
+            responseSaleDTO.setArea(saleDAO.getArea().name());
+            responseSaleDTO.setRegion(saleDAO.getRegion());
+            responseSaleDTO.setGender(saleDAO.getGender().name());
 
             responseSaleDTOs.add(responseSaleDTO);
         }

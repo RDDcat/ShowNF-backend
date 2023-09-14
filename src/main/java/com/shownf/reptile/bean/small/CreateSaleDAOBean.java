@@ -2,6 +2,8 @@ package com.shownf.reptile.bean.small;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shownf.reptile.Model.DTO.RequestSaleSaveDTO;
+import com.shownf.reptile.Model.Enum.Area;
+import com.shownf.reptile.Model.Enum.Gender;
 import com.shownf.reptile.Model.Enum.SalePlatform;
 import com.shownf.reptile.Model.entity.SaleDAO;
 import org.springframework.stereotype.Component;
@@ -58,7 +60,22 @@ public class CreateSaleDAOBean {
         // 채팅, 네이버 링크
         String link = requestSaleSaveDTO.getLink();
 
+        // 환불규정
+        String refundPolicy = requestSaleSaveDTO.getRefundPolicy();
+
+        // 사이테스 유무
+        Boolean cites = requestSaleSaveDTO.getCites();
+
+        // 행정구역
+        Area area = Area.valueOf(requestSaleSaveDTO.getArea());
+
+        // 지역
+        String region = requestSaleSaveDTO.getRegion();
+
+        // 성별
+        Gender gender = Gender.valueOf(requestSaleSaveDTO.getGender());
+
         // DTO 반환
-        return new SaleDAO(saleId, petId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price, heartCount, salePlatform, link);
+        return new SaleDAO(saleId, petId, userId, imageUrl, individual, firstSpecies, secondSpecies, birthday, weight, speciesExplain, price, heartCount, salePlatform, link, refundPolicy, cites, area, region, gender);
     }
 }

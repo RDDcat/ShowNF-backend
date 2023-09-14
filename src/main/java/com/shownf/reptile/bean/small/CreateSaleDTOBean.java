@@ -27,6 +27,11 @@ public class CreateSaleDTOBean {
         responseSaleDTO.setHeartCount(saleDAO.getHeartCount());
         responseSaleDTO.setSalePlatform(saleDAO.getSalePlatform().name());
         responseSaleDTO.setLink(saleDAO.getLink());
+        responseSaleDTO.setRefundPolicy(saleDAO.getRefundPolicy());
+        responseSaleDTO.setCites(saleDAO.getCites());
+        responseSaleDTO.setArea(saleDAO.getArea().name());
+        responseSaleDTO.setRegion(saleDAO.getRegion());
+        responseSaleDTO.setGender(saleDAO.getGender().name());
 
         return responseSaleDTO;
     }

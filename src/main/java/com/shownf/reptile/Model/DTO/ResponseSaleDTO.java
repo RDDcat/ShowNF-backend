@@ -18,4 +18,9 @@ public class ResponseSaleDTO {
     Integer heartCount;
     String salePlatform;
     String link;
+    String refundPolicy;
+    Boolean cites;
+    String area;
+    String region;
+    String gender;
 }
